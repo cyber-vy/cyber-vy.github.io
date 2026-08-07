@@ -395,6 +395,11 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 .rise{opacity:0;transform:translateY(18px)}
 .rise.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
 @media(prefers-reduced-motion:reduce){.rise{opacity:1;transform:none}}
+   /* --- yayın kapağı --- */
+.pub-main{display:flex;gap:clamp(14px,2vw,22px);align-items:flex-start}
+.pub-text{min-width:0}
+.kapak{width:82px;height:auto;flex-shrink:0;border:1px solid var(--rule);background:var(--paper-2)}
+@media(max-width:520px){.pub-main{flex-direction:column}.kapak{width:100px}}
 </style>
 </head>
 <body>
@@ -653,36 +658,43 @@ const SITE = {
     {
       derece: "Doktora",
       alan: "Uluslararası İlişkiler",
-      kurum: "",
-      yil: "",
+      kurum: "Trakya Üniversitesi",
+      yil: "2020-2026",
       tez: "Uluslararası Güvenlik Boyutunda Siber Uzay Jeopolitiği"
     },
     {
       derece: "Yüksek Lisans",
-      alan: "Uluslararası İlişkiler",
-      kurum: "",
-      yil: "",
-      tez: "Enerji güvenliği alanında"
+      alan: "Ulusal ve Uluslararası Güvenlik Stratejileri Yönetimi ve Liderlik",
+      kurum: "Milli Savunma Üniversitesi",
+      yil: "2009-2011",
+      tez: "Dünya Enerji Kaynakları Üzerindeki Güç Mücadelesinin Türkiye’ye Olabilecek Etkileri ve Alınabilecek Tedbirlerin İncelenmesi"
     },
     {
       derece: "Lisans",
       alan: "Sistem Mühendisliği",
-      kurum: "",
-      yil: "",
+      kurum: "Kara Harp Okulu",
+      yil: "1995-1999",
       tez: ""
     },
     {
       derece: "Lisans",
       alan: "Uluslararası İlişkiler",
-      kurum: "",
-      yil: "",
+      kurum: "Anadolu Üniversitesi",
+      yil: "2018-2021",
       tez: ""
     },
     {
       derece: "Lisans",
       alan: "Tarih",
-      kurum: "",
-      yil: "",
+      kurum: "İstanbul Üniversitesi",
+      yil: "2019-2023",
+      tez: ""
+    },
+     {
+      derece: "Lisans",
+      alan: "Yönetim Bilişim Sistemleri",
+      kurum: "Anadolu Üniversitesi",
+      yil: "2024-Devam",
       tez: ""
     }
   ],
@@ -715,7 +727,8 @@ const SITE = {
       not: "1. Bölüm · Gazi Kitabevi, 2021 · ISBN 978-625-8443-17-2",
       durum: "",
       anahtar: "uluslararası güvenlik çalışmaları kavramsal çerçeve güvenlik teorileri",
-      baglanti: ""
+      baglanti: "",
+  kapak: "foto/kitap-on.jpg"
     }
     /* Yeni yayın eklemek için yukarıdaki bloklardan birini kopyalayıp
        virgülle ayırarak buraya yapıştırın. Listeyi yeniden sıralamanız
@@ -928,13 +941,16 @@ function yayinlariCiz() {
   $('#pubList').innerHTML = liste.map(y => `
     <li class="pub">
       <span class="yr">${esc(y.yil)}</span>
-      <div>
-        <h3>${esc(y.baslik)}</h3>
-        ${y.yazarlar ? `<p class="who">${esc(y.yazarlar)}</p>` : ''}
-        <p class="venue"><i>${esc(y.dergi)}</i>${y.not ? '<br>' + esc(y.not) : ''}</p>
-        <div class="meta">
-          <span class="tag">${esc(y.tur)}</span>
-          ${y.durum ? `<span class="tag status">${esc(y.durum)}</span>` : ''}
+      <div class="pub-main">
+        ${y.kapak ? `<img class="kapak" src="${esc(y.kapak)}" alt="${esc(y.dergi)} kapağı" loading="lazy" onerror="this.remove()">` : ''}
+        <div class="pub-text">
+          <h3>${esc(y.baslik)}</h3>
+          ${y.yazarlar ? `<p class="who">${esc(y.yazarlar)}</p>` : ''}
+          <p class="venue"><i>${esc(y.dergi)}</i>${y.not ? '<br>' + esc(y.not) : ''}</p>
+          <div class="meta">
+            <span class="tag">${esc(y.tur)}</span>
+            ${y.durum ? `<span class="tag status">${esc(y.durum)}</span>` : ''}
+          </div>
         </div>
       </div>
       ${y.baglanti ? `<a class="go" href="${esc(y.baglanti)}" target="_blank" rel="noopener">Yayına git ↗</a>` : '<span></span>'}
