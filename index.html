@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dr. Volkan Yaman — Uluslararası Güvenlik, Siber Güvenlik, Harp Tarihi</title>
-<meta name="description" content="Dr. Volkan Yaman, bağımsız araştırmacı. Uluslararası güvenlik, siber güvenlik ve harp tarihi üzerine yayınlar, araştırma notları ve gündem değerlendirmeleri.">
+<title>Dr. Volkan Yaman — Uluslararası Güvenlik ve Siber Güvenlik</title>
+<meta name="description" content="Dr. Volkan Yaman, bağımsız araştırmacı. Uluslararası güvenlik çatısı altında güvenlik çalışmaları, siber güvenlik ve siber uzay jeopolitiği üzerine araştırmalar.">
 <meta name="author" content="Volkan Yaman">
-<meta property="og:title" content="Dr. Volkan Yaman — Uluslararası Güvenlik, Siber Güvenlik, Harp Tarihi">
-<meta property="og:description" content="Güvenlik kavramı, bölgesel güvenlik düzenleri ve siber uzay üzerine bağımsız araştırma.">
+<meta property="og:title" content="Dr. Volkan Yaman — Uluslararası Güvenlik ve Siber Güvenlik">
+<meta property="og:description" content="Siber uzayı hem stratejik bir alan hem de korunması gereken bir altyapı olarak ele alan bağımsız araştırma.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -198,6 +198,13 @@ h2{
   font-size:clamp(1.85rem,3.6vw,2.7rem);margin:0 0 18px;
 }
 .sec-note{color:var(--slate);max-width:66ch;margin:0 0 clamp(28px,4vw,44px);font-size:.95rem}
+h2:last-child{margin-bottom:clamp(28px,4vw,44px)}
+
+/* bölüm boşken gösterilen satır */
+.bekliyor{
+  color:var(--slate);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;
+  text-transform:uppercase;border-top:1px solid var(--rule);padding-top:20px;margin:0;
+}
 
 /* ============================================================
    ÇALIŞMA ALANLARI
@@ -283,6 +290,12 @@ h2{
   .pub{grid-template-columns:1fr;gap:9px}
   .pub .yr{padding-top:0}
 }
+
+/* yayın kapağı */
+.pub-main{display:flex;gap:clamp(14px,2vw,22px);align-items:flex-start}
+.pub-text{min-width:0}
+.kapak{width:82px;height:auto;flex-shrink:0;border:1px solid var(--rule);background:var(--paper-2)}
+@media(max-width:520px){.pub-main{flex-direction:column}.kapak{width:100px}}
 
 /* ============================================================
    YAZILAR
@@ -395,11 +408,6 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 .rise{opacity:0;transform:translateY(18px)}
 .rise.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
 @media(prefers-reduced-motion:reduce){.rise{opacity:1;transform:none}}
-   /* --- yayın kapağı --- */
-.pub-main{display:flex;gap:clamp(14px,2vw,22px);align-items:flex-start}
-.pub-text{min-width:0}
-.kapak{width:82px;height:auto;flex-shrink:0;border:1px solid var(--rule);background:var(--paper-2)}
-@media(max-width:520px){.pub-main{flex-direction:column}.kapak{width:100px}}
 </style>
 </head>
 <body>
@@ -445,8 +453,8 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
   <div class="wrap hero-in">
     <div>
       <p class="mono coord" id="coordLine">41°44′K 27°13′D — Kırklareli, Türkiye</p>
-      <h1>Güvenliği kavram, coğrafya ve <em>tarih</em> arasında okumak</h1>
-      <p class="lede">Uluslararası İlişkiler doktoru, bağımsız araştırmacı. Güvenlik kavramının nasıl genişlediğini, bölgesel güvenlik düzenlerinin hangi dinamiklerle kurulduğunu ve siber uzayın bu tabloya ne eklediğini araştırıyorum. Sistem mühendisliği, uluslararası ilişkiler ve tarih alanlarındaki lisans eğitimim, bu soruları üç ayrı zeminden aynı anda ele almamı sağlıyor.</p>
+      <h1>Siber uzayı hem strateji hem <em>altyapı</em> olarak okumak</h1>
+      <p class="lede">Uluslararası İlişkiler doktoru, bağımsız araştırmacı. Çalışmalarım uluslararası güvenlik çatısı altında güvenlik çalışmaları ve siber güvenlik alanlarında yoğunlaşmaktadır. Siber uzayı yalnızca devletlerin egemenlik iddiasında bulunduğu stratejik bir alan olarak değil, aynı zamanda korunması gereken somut bir altyapı olarak ele almaktayım. Bu ikili bakış, hem uluslararası ilişkiler kuramına hem de teknik alandaki çalışma tecrübeme dayanmaktadır. Tarih eğitimim ise harp tarihine yönelik ilgimin temelini oluşturmaktadır.</p>
       <div class="cta-row">
         <a class="btn" href="#yayinlar">Yayınları gör
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -473,8 +481,7 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 <section id="alanlar" class="band">
   <div class="wrap">
     <div class="sec-head rise"><span class="mono">Çalışma Alanları</span><span class="bar"></span></div>
-    <h2 class="rise">Üç eksen, tek soru: güvenlik nerede ve nasıl üretiliyor?</h2>
-    <p class="sec-note rise">Alanlar birbirinden bağımsız değil. Güvenlik kavramının genişlemesi bölgesel düzenlerin nasıl okunacağını belirliyor, siber uzay bu kavram setini zorluyor, harp tarihi ise bugünün varsayımlarının nereden geldiğini gösteriyor.</p>
+    <h2 class="rise">Araştırma alanlarım ve odak noktalarım</h2>
     <div class="fields rise" id="fields"></div>
   </div>
 </section>
@@ -496,8 +503,7 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 <section id="egitim" class="band">
   <div class="wrap">
     <div class="sec-head rise"><span class="mono">Eğitim</span><span class="bar"></span></div>
-    <h2 class="rise">Mühendislikten tarihe uzanan bir hazırlık</h2>
-    <p class="sec-note rise">Üç farklı lisans alanı, enerji güvenliği üzerine bir yüksek lisans ve siber uzay jeopolitiği üzerine bir doktora.</p>
+    <h2 class="rise">Akademik ve mesleki eğitim geçmişim</h2>
     <ul class="edu rise" id="eduList"></ul>
   </div>
 </section>
@@ -506,8 +512,8 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 <section id="yayinlar" class="band alt">
   <div class="wrap">
     <div class="sec-head rise"><span class="mono">Yayınlar</span><span class="bar"></span></div>
-    <h2 class="rise">Yayımlanmış eserler</h2>
-    <p class="sec-note rise">Türe göre süzün ya da başlık, dergi ve anahtar kelime içinde arayın.</p>
+    <h2 class="rise">Yayınlarım ve çalışmalarım</h2>
+    <p class="sec-note rise">Türe göre süzebilir ya da başlık, dergi ve anahtar kelime içinde arayabilirsiniz.</p>
 
     <div class="controls rise">
       <div class="chips" id="pubChips" role="group" aria-label="Yayın türüne göre süz"></div>
@@ -518,7 +524,7 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
     </div>
 
     <ul class="pubs" id="pubList"></ul>
-    <p id="pubEmpty" class="sec-note" style="display:none;margin:28px 0 0">Bu ölçütlere uyan yayın yok. Süzgeci genişletin ya da aramayı temizleyin.</p>
+    <p id="pubEmpty" class="sec-note" style="display:none;margin:28px 0 0">Bu ölçütlere uyan kayıt bulunamadı. Süzgeci genişletin ya da aramayı temizleyin.</p>
   </div>
 </section>
 
@@ -526,9 +532,9 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 <section id="yazilar" class="band">
   <div class="wrap">
     <div class="sec-head rise"><span class="mono">Araştırma Yazıları</span><span class="bar"></span></div>
-    <h2 class="rise">Hakemli sürecin dışında kalan notlar</h2>
-    <p class="sec-note rise">Olgunlaşmakta olan argümanlar, kavram tartışmaları ve okuma notları. Açmak için bir yazıya tıklayın.</p>
+    <h2 class="rise">Araştırma notları ve değerlendirmeler</h2>
     <div class="notes rise" id="noteGrid"></div>
+    <p class="bekliyor rise" id="noteEmpty" style="display:none">Bu bölüm yakında güncellenecektir</p>
   </div>
 </section>
 
@@ -536,9 +542,9 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 <section id="gundem" class="band alt">
   <div class="wrap">
     <div class="sec-head rise"><span class="mono">Gündem</span><span class="bar"></span></div>
-    <h2 class="rise">Alandan takip ettiklerim</h2>
-    <p class="sec-note rise">Uluslararası güvenlik gündeminden dikkat çeken gelişmeler, kısa değerlendirmelerle.</p>
+    <h2 class="rise">Alandan takip ettiğim gelişmeler</h2>
     <ul class="feed rise" id="feed"></ul>
+    <p class="bekliyor rise" id="feedEmpty" style="display:none">Bu bölüm yakında güncellenecektir</p>
   </div>
 </section>
 
@@ -546,8 +552,7 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 <section id="galeri" class="band">
   <div class="wrap">
     <div class="sec-head rise"><span class="mono">Galeri</span><span class="bar"></span></div>
-    <h2 class="rise">Konferanslar, saha ve arşiv</h2>
-    <p class="sec-note rise">Sunumlardan, çalışma masasından ve harp tarihi araştırmalarında ziyaret ettiğim yerlerden kareler.</p>
+    <h2 class="rise">Görseller</h2>
     <div class="gallery rise" id="gallery"></div>
   </div>
 </section>
@@ -558,8 +563,8 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
     <div class="sec-head rise"><span class="mono">İletişim</span><span class="bar"></span></div>
     <div class="contact">
       <div class="rise">
-        <h2>Ortak çalışma, hakemlik ve söyleşi taleplerine açığım</h2>
-        <p class="sec-note">Yayın daveti, konferans çağrısı ya da çalışmalarımla ilgili bir sorunuz varsa yazın. Genellikle birkaç gün içinde dönüş yapıyorum.</p>
+        <h2>Akademik iş birliği ve değerlendirme talepleri</h2>
+        <p class="sec-note">Ortak çalışma önerileri, hakemlik talepleri, konferans davetleri ve çalışmalarıma ilişkin sorularınız için aşağıdaki adreslerden ulaşabilirsiniz.</p>
         <ul class="links" id="links"></ul>
       </div>
       <form class="form rise" id="contactForm">
@@ -569,7 +574,7 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
         <label><span class="lbl">Mesajınız</span><textarea name="mesaj" required></textarea></label>
         <button type="submit" class="btn">Mesajı gönder
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-        <p class="form-note" id="formNote">Gönder’e bastığınızda mesaj kendi e-posta programınızda hazır hâlde açılır. Böylece yazışma doğrudan sizinle benim aramda kalır.</p>
+        <p class="form-note" id="formNote">Gönder düğmesine bastığınızda mesaj kendi e-posta programınızda hazırlanmış olarak açılır.</p>
       </form>
     </div>
   </div>
@@ -599,7 +604,6 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 <script>
 /* ============================================================================
    İÇERİK — SİTEDEKİ HER ŞEY BURADAN DÜZENLENİR
-   Aşağıdaki bölümleri değiştirmeniz yeterli. Tasarıma dokunmanız gerekmez.
    ============================================================================ */
 
 const SITE = {
@@ -610,50 +614,45 @@ const SITE = {
   /* --- ÇALIŞMA ALANLARI ------------------------------------------------- */
   alanlar: [
     {
-      etiket: "Eksen A",
-      baslik: "Uluslararası güvenlik çalışmaları",
-      metin: "Güvenlik kavramının devlet merkezli dar tanımdan çıkıp toplumsal, ekonomik ve çevresel boyutları kapsayacak biçimde genişlemesini inceliyorum. Bölgesel güvenlik düzenlerinin nasıl oluştuğu ve güvenlikleştirme pratiklerinin karar alma süreçlerine etkisi temel ilgi noktalarım.",
-      anahtar: ["Kavramsal çerçeve", "Bölgesel güvenlik kompleksi", "Güvenlikleştirme", "Enerji güvenliği"]
+      etiket: "Alan",
+      baslik: "Uluslararası güvenlik",
+      metin: "Uluslararası güvenlik, çalışmalarımın kavramsal çatısını oluşturmaktadır. Güvenlik kavramının kapsamı, bölgesel güvenlik düzenlerinin işleyişi ve aktörler arası etkileşim biçimleri temel ilgi alanlarımdır.",
+      anahtar: ["Güvenlik çalışmaları", "Bölgesel güvenlik kompleksi", "Enerji güvenliği"]
     },
     {
-      etiket: "Eksen B",
+      etiket: "Alan",
       baslik: "Siber güvenlik ve siber uzay jeopolitiği",
-      metin: "Devletlerin siber uzayı bir egemenlik alanı olarak kurma çabalarını eleştirel jeopolitik yaklaşımıyla ele alıyorum. Altyapı üzerindeki denetim, veri akışlarının siyasallaşması ve bağlayıcı bir normatif çerçevenin neden oluşmadığı üzerinde duruyorum.",
-      anahtar: ["Egemenlik", "Eleştirel jeopolitik", "Norm boşluğu", "Kritik altyapı"]
+      metin: "Siber güvenliği iki ayrı düzlemde ele almaktayım. Uluslararası ilişkiler açısından siber uzayda egemenlik iddiaları, güç kullanımı ve norm oluşumu üzerinde durmaktayım. Teknik açıdan ise sistem ve altyapı güvenliğine odaklanmaktayım. Doktora tezimi bu alanda hazırladım ve çalışmalarımı bu doğrultuda sürdürmekteyim.",
+      anahtar: ["Siber uzay jeopolitiği", "Egemenlik", "Kritik altyapı", "Güvenlik analizi"]
     },
     {
-      etiket: "Eksen C",
+      etiket: "Alan",
       baslik: "Harp tarihi",
-      metin: "Askerî tarihi geçmişin kaydı olarak değil, bugünün stratejik varsayımlarının nereden geldiğini anlamanın yolu olarak okuyorum. Teknolojik dönüşümlerin doktrini nasıl yeniden yazdığı ve hukukun bu dönüşümlerin gerisinde kalma biçimleri özel ilgi alanım.",
-      anahtar: ["Askerî doktrin", "Teknoloji ve savaş", "Strateji tarihi"]
+      metin: "Harp tarihine yönelik ilgim iki kaynaktan beslenmektedir. Kara Harp Okulu ve Kara Harp Akademisi'nde aldığım öğrenim strateji ve doktrin konularına kurumsal bir bakış kazandırmış, tarih alanındaki lisans eğitimim ise bu birikimi tarihsel yöntemle ele alma imkânı sunmuştur.",
+      anahtar: ["Askerî tarih", "Strateji", "Doktrin"]
     }
   ],
 
   /* --- HAKKIMDA: biyografi paragrafları ---------------------------------- */
   /* İlk paragraf otomatik olarak büyük puntoyla vurgulanır. */
   biyografi: [
-    "Uluslararası İlişkiler alanında doktora derecesine sahip bağımsız bir araştırmacıyım. Çalışmalarım uluslararası güvenlik, siber güvenlik ve harp tarihi alanlarında yoğunlaşıyor.",
-    "Akademik hazırlığım alışılmadık biçimde geniş bir tabana yaslanıyor. Sistem mühendisliği, uluslararası ilişkiler ve tarih olmak üzere üç ayrı lisans derecem var. Mühendislik eğitimi bana teknik altyapıyı ve sistem düşüncesini, tarih eğitimi ise olayları uzun süreli örüntüler içinde görme alışkanlığını kazandırdı. Uluslararası ilişkiler bu ikisini birleştirdiğim zemin oldu.",
-    "Yüksek lisans çalışmamı enerji güvenliği üzerine yaptım. Bu, güvenliğin yalnızca askerî bir mesele olmadığını, kaynak akışları ve bağımlılık ilişkileri üzerinden de kurulduğunu gösteren verimli bir başlangıç noktasıydı.",
-    "Doktora tezimde siber uzayı, klasik jeopolitiğin kara, deniz ve hava için geliştirdiği kavramlarla açıklanamayan bir alan olarak ele aldım. Eleştirel jeopolitik yazını, özellikle mekânın söylemsel olarak kurulduğuna dair yaklaşım, bu tartışmayı yürütmek için verimli bir zemin sundu.",
-    "Yayımlanmış çalışmalarım uluslararası güvenlik çalışmalarının kavramsal çerçevesi ve Güney Çin Denizi'ndeki bölgesel güvenlik dinamikleri üzerine. Hâlen hem siber uzay jeopolitiği hem de normatif güvenlik teorisi alanlarında yeni çalışmalar yürütüyorum.",
-    "Bağımsız çalışıyorum. Bu, kurumsal desteğin sınırlı olması anlamına geliyor; buna karşılık araştırma gündemimi tamamen kendim belirleyebiliyorum."
+    "Uluslararası İlişkiler alanında doktora derecesine sahip bağımsız bir araştırmacıyım. Çalışmalarım uluslararası güvenlik çatısı altında güvenlik çalışmaları ve siber güvenlik alanlarında yoğunlaşmaktadır.",
+    "Akademik altyapım birden fazla alana yayılmaktadır. Lisans eğitimimi Kara Harp Okulu Sistem Mühendisliği programında tamamladım. Ardından Anadolu Üniversitesi'nde Uluslararası İlişkiler ve İstanbul Üniversitesi'nde Tarih lisans programlarını bitirdim. Hâlen Yönetim Bilişim Sistemleri lisans eğitimimi sürdürmekteyim.",
+    "Yüksek lisans çalışmamı Millî Savunma Üniversitesi'nde enerji güvenliği üzerine hazırladım. Doktora tezimde ise siber uzay jeopolitiğini uluslararası güvenlik boyutuyla ele aldım.",
+    "Siber güvenliği yalnızca kuramsal düzeyde değil teknik düzeyde de takip etmekteyim. Bu alanda siber güvenlik analistliği sertifikalarına ve iki yıllık çalışma tecrübesine sahibim. Yönetim Bilişim Sistemleri eğitimim de bu ikili bakışı desteklemektedir.",
+    "Önümüzdeki dönemde siber uzay jeopolitiği üzerine çalışmayı ve konuyu farklı boyutlarıyla ele almayı planlamaktayım."
   ],
 
   /* --- HAKKIMDA: künye satırları ----------------------------------------- */
   kunye: [
-    { baslik: "Unvan",    deger: "Doktor (Ph.D.)", alt: "Uluslararası İlişkiler" },
-    { baslik: "Konum",    deger: "Kırklareli, Türkiye" },
-    { baslik: "Statü",    deger: "Bağımsız araştırmacı" },
-    { baslik: "Diller",   deger: "Türkçe, İngilizce" },
-    { baslik: "Alanlar",  deger: "Uluslararası güvenlik", alt: "Siber güvenlik · Harp tarihi" },
-    { baslik: "Hakemlik", deger: "Talep üzerine değerlendirme yapıyorum" }
+    { baslik: "Unvan",   deger: "Doktor (Ph.D.)", alt: "Uluslararası İlişkiler" },
+    { baslik: "Konum",   deger: "Kırklareli, Türkiye" },
+    { baslik: "Statü",   deger: "Bağımsız araştırmacı" },
+    { baslik: "Diller",  deger: "Türkçe, İngilizce" },
+    { baslik: "Alanlar", deger: "Uluslararası güvenlik", alt: "Siber güvenlik · Harp tarihi" }
   ],
 
-  /* --- EĞİTİM ------------------------------------------------------------
-     kurum ve yil alanlarını kendi bilgilerinizle doldurun.
-     Boş bırakılan alanlar sayfada hiç görünmez.
-     ------------------------------------------------------------------- */
+  /* --- EĞİTİM ------------------------------------------------------------ */
   egitim: [
     {
       derece: "Doktora",
@@ -665,9 +664,9 @@ const SITE = {
     {
       derece: "Yüksek Lisans",
       alan: "Ulusal ve Uluslararası Güvenlik Stratejileri Yönetimi ve Liderlik",
-      kurum: "Milli Savunma Üniversitesi",
+      kurum: "Millî Savunma Üniversitesi",
       yil: "2009-2011",
-      tez: "Dünya Enerji Kaynakları Üzerindeki Güç Mücadelesinin Türkiye’ye Olabilecek Etkileri ve Alınabilecek Tedbirlerin İncelenmesi"
+      tez: "Dünya Enerji Kaynakları Üzerindeki Güç Mücadelesinin Türkiye'ye Olabilecek Etkileri ve Alınabilecek Tedbirlerin İncelenmesi"
     },
     {
       derece: "Lisans",
@@ -690,27 +689,42 @@ const SITE = {
       yil: "2019-2023",
       tez: ""
     },
-     {
+    {
       derece: "Lisans",
       alan: "Yönetim Bilişim Sistemleri",
       kurum: "Anadolu Üniversitesi",
-      yil: "2024-Devam",
+      yil: "2024-Devam ediyor",
       tez: ""
     }
   ],
 
   /* --- YAYINLAR ----------------------------------------------------------
-     Yalnızca yayımlanmış eserler listelenir.
-     tur: "Makale" | "Kitap Bölümü"  (yeni tür eklerseniz süzgeç kendiliğinden büyür)
-     yazarlar: tek yazarlıysa "" bırakın, satır gösterilmez.
-     durum: normalde boş. Doluysa vurgulu etiket olarak görünür.
-     baglanti: DOI ya da URL. Yoksa "" bırakın, bağlantı gösterilmez.
+     Sıralama: önce yayımlanmış eserler, sonra tezler, en sonda süreçteki
+     çalışmalar. Sayfada yazdığınız sırayla görünür.
+
+     durum: boşsa etiket çıkmaz. Doluysa vurgulu etiket olarak görünür.
+            Kullanılabilecek ifadeler: Değerlendirmede · Revizyonda ·
+            Yayım aşamasında · Kabul edildi
+
+     Yeni bir bildiri eklemek isterseniz aşağıdaki kalıbı kopyalayın:
+
+     {
+       yil: "2027",
+       tur: "Bildiri",
+       baslik: "Bildirinin başlığı",
+       yazarlar: "",
+       dergi: "Kongrenin ya da sempozyumun adı",
+       not: "Şehir, tarih · Sözlü sunum",
+       durum: "",
+       anahtar: "arama kelimeleri",
+       baglanti: ""
+     },
      ------------------------------------------------------------------- */
   yayinlar: [
     {
       yil: "2026",
       tur: "Makale",
-      baslik: "Bölgesel Güvenlik Kompleksi Teorisi Bağlamında Güney Çin Denizi’nde Güvenlik: Aktörler, Politikalar ve Süreçler",
+      baslik: "Bölgesel Güvenlik Kompleksi Teorisi Bağlamında Güney Çin Denizi'nde Güvenlik: Aktörler, Politikalar ve Süreçler",
       yazarlar: "Volkan Yaman, Sibel Turan",
       dergi: "Güvenlik Stratejileri Dergisi",
       not: "Cilt 22, Sayı 53, ss. 1-22 · 27 Nisan 2026",
@@ -728,168 +742,120 @@ const SITE = {
       durum: "",
       anahtar: "uluslararası güvenlik çalışmaları kavramsal çerçeve güvenlik teorileri",
       baglanti: "",
-  kapak: "foto/kitap-on.jpg"
+      kapak: "foto/kitap-on.jpg"
     },
-     {
-  yil: "",
-  tur: "Bildiri",
-  baslik: "",
-  yazarlar: "",
-  dergi: "",
-  not: "",
-  durum: "",
-  anahtar: "a",
-  baglanti: ""
-},
-     {
-  yil: "2026",
-  tur: "Tez",
-  baslik: "Uluslararası Güvenlik Boyutunda Siber Uzay Jeopolitiği",
-  yazarlar: "Volkan Yaman",
-  dergi: "Doktora tezi",
-  not: "Trakya Üniversitesi",
-  durum: "",
-  anahtar: "",
-  baglanti: ""
-},
-     {
-  yil: "2011",
-  tur: "Tez",
-  baslik: "Dünya Enerji Kaynakları Üzerindeki Güç Mücadelesinin Türkiye’ye Olabilecek Etkileri ve Alınabilecek Tedbirlerin İncelenmesi",
-  yazarlar: "Volkan Yaman",
-  dergi: "Yüksek lisans tezi",
-  not: "Milli Savunma Üniversitesi",
-  durum: "",
-  anahtar: "",
-  baglanti: ""
-}
-    /* Yeni yayın eklemek için yukarıdaki bloklardan birini kopyalayıp
-       virgülle ayırarak buraya yapıştırın. Listeyi yeniden sıralamanız
-       gerekmez, sayfada yazdığınız sırayla görünür. */
+    {
+      yil: "2026",
+      tur: "Tez",
+      baslik: "Uluslararası Güvenlik Boyutunda Siber Uzay Jeopolitiği",
+      yazarlar: "Volkan Yaman",
+      dergi: "Doktora tezi",
+      not: "Trakya Üniversitesi",
+      durum: "",
+      anahtar: "doktora tez siber uzay jeopolitik uluslararası güvenlik",
+      baglanti: ""
+    },
+    {
+      yil: "2011",
+      tur: "Tez",
+      baslik: "Dünya Enerji Kaynakları Üzerindeki Güç Mücadelesinin Türkiye'ye Olabilecek Etkileri ve Alınabilecek Tedbirlerin İncelenmesi",
+      yazarlar: "Volkan Yaman",
+      dergi: "Yüksek lisans tezi",
+      not: "Millî Savunma Üniversitesi",
+      durum: "",
+      anahtar: "yüksek lisans tez enerji güvenliği güç mücadelesi türkiye",
+      baglanti: ""
+    },
+    {
+      yil: "2026",
+      tur: "Kitap Bölümü",
+      baslik: "Siber Güvenlik ve Dijital Krizler: Devletler Arası Etkiler",
+      yazarlar: "",
+      dergi: "Editörlü kitap",
+      not: "",
+      durum: "Yayım aşamasında",
+      anahtar: "siber güvenlik dijital kriz devletler arası etki",
+      baglanti: ""
+    },
+    {
+      yil: "2026",
+      tur: "Makale",
+      baslik: "Rawls'ın Adalet Teorisi Işığında Küresel Adalet: Kozmopolitanizm, Toplumculuk ve Birleşmiş Milletler'in Normatif Sınırları",
+      yazarlar: "",
+      dergi: "Hakemli dergi",
+      not: "",
+      durum: "Revizyonda",
+      anahtar: "rawls küresel adalet kozmopolitanizm toplumculuk birleşmiş milletler normatif",
+      baglanti: ""
+    },
+    {
+      yil: "2026",
+      tur: "Makale",
+      baslik: "Cyberspace Geopolitics: Sovereignty, Power, and the Normative Gap",
+      yazarlar: "",
+      dergi: "Uluslararası hakemli dergi",
+      not: "",
+      durum: "Değerlendirmede",
+      anahtar: "cyberspace geopolitics sovereignty power normative gap siber uzay jeopolitiği",
+      baglanti: ""
+    }
   ],
 
   /* --- ARAŞTIRMA YAZILARI -------------------------------------------------
-     govde: HTML kabul eder. <p>, <h3>, <blockquote> kullanabilirsiniz.
+     Liste şu an boş. Yazı eklediğinizde bölüm kendiliğinden görünür hâle
+     gelir. Kalıp:
+
+     {
+       tarih: "2026-09-01",
+       etiket: "Kavram",
+       baslik: "Yazının başlığı",
+       ozet: "Kartta görünecek iki cümlelik özet.",
+       sure: "6 dk",
+       govde: `
+         <p>Birinci paragraf.</p>
+         <h3>Ara başlık</h3>
+         <p>İkinci paragraf.</p>
+         <blockquote>Vurgulamak istediğiniz cümle.</blockquote>
+       `
+     },
      ------------------------------------------------------------------- */
-  yazilar: [
-    {
-      tarih: "2026-07-18",
-      etiket: "Kavram",
-      baslik: "Güvenlik kimin güvenliği?",
-      ozet: "Kavramın Soğuk Savaş sonrasında genişlemesi analitik bir kazanç mı yoksa her şeyi kapsayarak hiçbir şeyi açıklamayan bir bulanıklık mı? Tartışmanın iki ucu da haklı sayılabilir.",
-      sure: "7 dk",
-      govde: `
-        <p>Güvenlik çalışmalarının klasik dönemi net bir cevaba dayanıyordu: güvenliğin öznesi devletti, tehdit askerî nitelikteydi, çözüm caydırıcılıktı. Soğuk Savaş'ın sona ermesiyle bu üçlü tanım hızla dağıldı.</p>
-        <h3>Genişlemenin iki yönü</h3>
-        <p>Kavram iki eksende genişledi. Dikey eksende öznesi değişti: devletin yanına birey, toplum ve insanlık eklendi. İnsani güvenlik yaklaşımı bu genişlemenin en belirgin ifadesi. Yatay eksende ise tehdit tanımı genişledi; ekonomik kırılganlık, çevresel bozulma, salgın hastalık ve enerji arz kesintisi güvenlik başlığı altına girdi.</p>
-        <p>Kendi çalışmamda enerji güvenliği bu genişlemenin ne kadar verimli olabileceğini gösterdi. Bir devletin enerji bağımlılığı, hiçbir askerî tehdit içermeksizin dış politika seçeneklerini daraltabiliyor. Bunu askerî terimlerle anlatmak mümkün değil.</p>
-        <h3>Karşı itiraz</h3>
-        <p>Buna karşılık geleneksel yaklaşımın itirazı ciddiye alınmayı hak ediyor. Her sorunu güvenlik başlığına taşımak kavramın ayırt edici gücünü tüketiyor. Eğer her şey güvenlik meselesiyse, güvenlik kelimesi hiçbir şeyi işaret etmiyor demektir.</p>
-        <blockquote>Kavramın genişlemesi tek başına bir sorun değil. Sorun, genişlemenin hangi ölçütle durdurulacağının belirsiz kalması.</blockquote>
-        <p>Güvenlikleştirme yaklaşımı burada kullanışlı bir çıkış sunuyor. Bir konunun doğası gereği güvenlik meselesi olup olmadığını sormak yerine, hangi aktörün onu güvenlik meselesi olarak sunduğunu ve bu sunumun hangi olağanüstü yetkileri meşru kıldığını soruyor. Böylece genişleme bir tanım sorunu olmaktan çıkıp bir siyaset sorununa dönüşüyor.</p>
-      `
-    },
-    {
-      tarih: "2026-06-14",
-      etiket: "Kuram",
-      baslik: "Bölgesel güvenlik kompleksi teorisi ne açıklar, ne açıklamaz",
-      ozet: "Coğrafi yakınlık ve karşılıklı tehdit algısı bir bölgeyi anlamlı bir analiz birimi hâline getiriyor. Ancak teorinin dışarıda bıraktığı şeyler de en az açıkladıkları kadar öğretici.",
-      sure: "8 dk",
-      govde: `
-        <p>Bölgesel güvenlik kompleksi teorisi, güvenlik analizinin ne küresel sistem ne de tekil devlet düzeyinde yapılmasının yeterli olduğunu savunuyor. Devletlerin güvenlik kaygıları çoğunlukla komşularına bağlı olduğu için, anlamlı analiz birimi bölgedir.</p>
-        <h3>Teorinin gücü</h3>
-        <p>Yaklaşımın en güçlü yanı, bir bölgedeki güvenlik ilişkilerinin birbirinden ayrılamayacağını göstermesi. Bir devletin savunma harcamasını artırması komşusunda karşılık üretiyor, bu karşılık üçüncü bir devleti etkiliyor. Bu örüntüyü ancak bölge ölçeğinde görebiliyorsunuz.</p>
-        <p>Güney Çin Denizi üzerine yürüttüğüm çalışmada bu yaklaşım, deniz alanının Güneydoğu Asya güvenlik mimarisi içinde ayrı bir alt kompleks oluşturduğunu görmemi sağladı. Örtüşen egemenlik iddiaları, yoğun askerîleştirme ve büyük güç rekabeti bir arada bu ayrışmayı üretiyor.</p>
-        <h3>Sınırları</h3>
-        <p>Teorinin iki zayıf noktası var. Birincisi, dış güçlerin bölgeye nüfuzunu ikincil bir değişken olarak ele alma eğilimi. Oysa bazı bölgelerde dış aktör, bölge içi dinamiklerden daha belirleyici olabiliyor.</p>
-        <p>İkincisi ve daha önemlisi, coğrafi yakınlığa dayalı bir teorinin coğrafyanın belirleyiciliğini yitirdiği alanlarda ne yapacağı belirsiz. Siber alanda komşuluk kavramının karşılığı yok. Bu, teorinin geçersiz olduğu anlamına gelmiyor; kapsamının nerede bittiğini bilmek gerektiği anlamına geliyor.</p>
-      `
-    },
-    {
-      tarih: "2026-04-27",
-      etiket: "Harp tarihi",
-      baslik: "Yeni silah, eski tartışma: teknolojik eşiklerde hukukun gecikmesi",
-      ozet: "Denizaltıdan hava bombardımanına, her teknolojik eşikte benzer bir kavramsal gecikme yaşandı. Bugünün tartışmaları bu örüntünün dışında değil.",
-      sure: "8 dk",
-      govde: `
-        <p>Askerî teknolojideki her büyük sıçrama, mevcut hukuk çerçevesinin yetersiz kaldığı bir ara dönem yarattı. Bu dönemlerde devletler yeni kapasiteyi kullanmakta serbest davrandı, kural ise ancak zarar yeterince görünür hâle geldikten sonra oluştu.</p>
-        <h3>Tekrar eden örüntü</h3>
-        <p>Denizaltı savaşı buna açık bir örnek. Yüzey gemileri için geliştirilmiş ödül kuralları denizaltının doğasıyla bağdaşmıyordu; kurallara uymak aracı işlevsiz kılıyordu. Sonuç, kuralların fiilen askıya alınması ve ancak savaş sonrasında yeniden yazılması oldu.</p>
-        <p>Hava bombardımanında da benzer bir seyir görülüyor. Sivil hedeflerin korunmasına dair ilkeler teknolojik kapasitenin gerisinde kaldı ve uygulamada erozyona uğradı. Her iki durumda da hukuk, teknolojiyi değil teknolojinin yarattığı yıkımı takip etti.</p>
-        <h3>Bugüne bakarken</h3>
-        <p>Aynı örüntü bugün otonom silah sistemleri ve siber operasyonlar için tartışılıyor. Ancak önemli bir fark var: önceki örneklerde en azından failin kim olduğu belliydi. Atfetme sorunu, bugünkü tartışmayı tarihsel örüntünün basit bir tekrarı olmaktan çıkarıyor.</p>
-        <p>Kural ihlalinin failini tespit edemediğiniz yerde, kuralın kendisi de zayıflıyor. Harp tarihi bize gecikmenin normal olduğunu öğretiyor, ama bu gecikmenin nasıl kapanacağı konusunda hazır bir cevap vermiyor.</p>
-      `
-    },
-    {
-      tarih: "2026-03-09",
-      etiket: "Siber",
-      baslik: "Siber uzayda \"egemenlik\" ne anlama geliyor?",
-      ozet: "Devletler siber alanda egemenlik iddiasında bulunurken birbirinden çok farklı üç şeyi kastediyor. Bu ayrımı yapmadan yürütülen tartışma verimsiz kalıyor.",
-      sure: "6 dk",
-      govde: `
-        <p>Egemenlik kavramı siber uzay tartışmalarında neredeyse her cümlede geçiyor. Buna karşılık kavramın ne anlama geldiği üzerinde bir uzlaşı yok. Devlet temsilcilerinin aynı kelimeyi kullanarak birbirine zıt şeyler savunması, uluslararası müzakerelerin neden tıkandığını büyük ölçüde açıklıyor.</p>
-        <h3>Üç ayrı iddia</h3>
-        <p>Birinci iddia altyapıya dair. Bir devletin sınırları içindeki sunucular, kablolar ve veri merkezleri üzerinde yargı yetkisi bulunduğunu söylemek, klasik toprak egemenliğinin doğrudan uzantısı. Bu iddia görece az tartışmalı çünkü fiziksel bir dayanağı var.</p>
-        <p>İkinci iddia veriye dair. Vatandaşlara ait verinin nerede tutulduğundan bağımsız olarak devletin denetimine tabi olduğunu savunmak, egemenliği topraktan kopararak kişiye bağlıyor. Burada iki devletin yetki alanı aynı veri üzerinde çakışabiliyor.</p>
-        <p>Üçüncü iddia enformasyon akışına dair. Sınır ötesinden gelen içeriğin ulusal güvenliği tehdit ettiği gerekçesiyle denetlenmesi gerektiğini söylemek, egemenliği bir içerik yönetimi yetkisine dönüştürüyor. En tartışmalı olan bu.</p>
-        <blockquote>Egemenlik iddiasının kendisi kadar, hangi katmanda ileri sürüldüğü belirleyicidir.</blockquote>
-        <p>Uluslararası platformlarda taraflar genellikle birinci iddiayı savunuyormuş gibi konuşuyor, uygulamada ise üçüncüsünü hayata geçiriyor. Kavramsal bulanıklık burada bir hata değil, işlevsel bir tercih.</p>
-      `
-    }
-  ],
+  yazilar: [],
 
   /* --- GÜNDEM ------------------------------------------------------------
-     kaynak / kaynakAdi boş bırakılırsa bağlantı gösterilmez.
+     Liste şu an boş. Kalıp:
+
+     {
+       tarih: "2026-09-01",
+       baslik: "Gelişmenin başlığı",
+       not: "Kısa değerlendirmeniz.",
+       kaynak: "https://ornek.com/haber",
+       kaynakAdi: "Kaynağın adı"
+     },
      ------------------------------------------------------------------- */
-  gundem: [
-    {
-      tarih: "2026-08-04",
-      baslik: "Güney Çin Denizi'nde davranış kuralları görüşmeleri sürüyor",
-      not: "ASEAN ile Çin arasındaki müzakerelerde bağlayıcılık sorunu yine çözülemedi. Kurumsal çerçevenin gönüllü ilkelerin ötesine geçip geçemeyeceği belirsizliğini koruyor.",
-      kaynak: "",
-      kaynakAdi: ""
-    },
-    {
-      tarih: "2026-07-21",
-      baslik: "Kritik altyapı saldırılarında atfetme tartışması derinleşiyor",
-      not: "Teknik atfetmenin siyasi atfetmeye dönüşmesindeki eşik belirsizliği, karşılık verme meşruiyetini tartışmalı kılmayı sürdürüyor.",
-      kaynak: "",
-      kaynakAdi: ""
-    },
-    {
-      tarih: "2026-06-30",
-      baslik: "Enerji arz güvenliği yeniden stratejik gündemin merkezinde",
-      not: "Boru hattı ve LNG rotalarındaki değişim, enerji bağımlılığının bir ekonomi meselesi olmaktan çıkıp doğrudan güvenlik başlığına taşınmasını hızlandırıyor.",
-      kaynak: "",
-      kaynakAdi: ""
-    }
-  ],
+  gundem: [],
 
   /* --- GALERİ ------------------------------------------------------------
      dosya: foto/ klasörüne koyacağınız görselin adı.
      ------------------------------------------------------------------- */
   galeri: [
-    { dosya: "foto/galeri-1.jpg", baslik: "Konferans sunumu" },
-    { dosya: "foto/galeri-2.jpg", baslik: "Arşiv çalışması" },
-    { dosya: "foto/galeri-3.jpg", baslik: "Panel oturumu" },
-    { dosya: "foto/galeri-4.jpg", baslik: "Saha ziyareti" },
-    { dosya: "foto/galeri-5.jpg", baslik: "Çalışma masası" },
-    { dosya: "foto/galeri-6.jpg", baslik: "Tez savunması" }
+    { dosya: "foto/galeri-1.jpg", baslik: "" },
+    { dosya: "foto/galeri-2.jpg", baslik: "" },
+    { dosya: "foto/galeri-3.jpg", baslik: "" },
+    { dosya: "foto/galeri-4.jpg", baslik: "" },
+    { dosya: "foto/galeri-5.jpg", baslik: "" },
+    { dosya: "foto/galeri-6.jpg", baslik: "" }
   ],
 
-  /* --- İLETİŞİM ----------------------------------------------------------
-     E-posta adresinizi mutlaka değiştirin. Kullanmadığınız satırı silin.
-     ------------------------------------------------------------------- */
+  /* --- İLETİŞİM ---------------------------------------------------------- */
   eposta: "vyaman1977@gmail.com",
-baglantilar: [
-  { etiket: "E-posta",         deger: "vyaman1977@gmail.com",  adres: "mailto:vyaman1977@gmail.com" },
-  { etiket: "ORCID",           deger: "0000-0003-3362-3194",   adres: "https://orcid.org/0000-0003-3362-3194" },
-  { etiket: "Google Akademik", deger: "Yayın profili",         adres: "https://scholar.google.com/citations?user=p4FciCwAAAAJ&hl=tr" },
-  { etiket: "DergiPark",       deger: "Yazar profili",         adres: "https://dergipark.org.tr/tr/pub/@volkan-yaman-00" },
-  { etiket: "ResearchGate",    deger: "Araştırma profili",     adres: "https://www.researchgate.net/profile/Volkan-Yaman-2" },
-  { etiket: "Web of Science",  deger: "Araştırmacı profili",   adres: "https://www.webofscience.com/wos/author/record/OTG-7841-2025" }
-]
+  baglantilar: [
+    { etiket: "E-posta",         deger: "vyaman1977@gmail.com",  adres: "mailto:vyaman1977@gmail.com" },
+    { etiket: "ORCID",           deger: "0000-0003-3362-3194",   adres: "https://orcid.org/0000-0003-3362-3194" },
+    { etiket: "Google Akademik", deger: "Yayın profili",         adres: "https://scholar.google.com/citations?user=p4FciCwAAAAJ&hl=tr" },
+    { etiket: "DergiPark",       deger: "Yazar profili",         adres: "https://dergipark.org.tr/tr/pub/@volkan-yaman-00" },
+    { etiket: "ResearchGate",    deger: "Araştırma profili",     adres: "https://www.researchgate.net/profile/Volkan-Yaman-2" },
+    { etiket: "Web of Science",  deger: "Araştırmacı profili",   adres: "https://www.webofscience.com/wos/author/record/OTG-7841-2025" }
+  ]
 };
 
 /* ============================================================================
@@ -1001,14 +967,19 @@ $('#pubSearch').addEventListener('input', e => { arama = e.target.value; yayinla
 yayinlariCiz();
 
 /* --- yazılar --- */
-$('#noteGrid').innerHTML = SITE.yazilar.map((y, i) => `
-  <button class="note" data-i="${i}">
-    <span class="top-line"><time datetime="${esc(y.tarih)}">${trTarih(y.tarih)}</time><span class="rt">${esc(y.sure)}</span></span>
-    <h3>${esc(y.baslik)}</h3>
-    <p>${esc(y.ozet)}</p>
-    <span class="more">Yazıyı oku
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </button>`).join('');
+if (SITE.yazilar.length) {
+  $('#noteGrid').innerHTML = SITE.yazilar.map((y, i) => `
+    <button class="note" data-i="${i}">
+      <span class="top-line"><time datetime="${esc(y.tarih)}">${trTarih(y.tarih)}</time><span class="rt">${esc(y.sure)}</span></span>
+      <h3>${esc(y.baslik)}</h3>
+      <p>${esc(y.ozet)}</p>
+      <span class="more">Yazıyı oku
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </button>`).join('');
+} else {
+  $('#noteGrid').style.display = 'none';
+  $('#noteEmpty').style.display = 'block';
+}
 
 /* --- okuma paneli --- */
 const reader = $('#reader');
@@ -1038,21 +1009,26 @@ reader.addEventListener('click', e => { if (e.target === reader) yaziKapat(); })
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && reader.classList.contains('open')) yaziKapat(); });
 
 /* --- gündem --- */
-$('#feed').innerHTML = SITE.gundem.map(g => `
-  <li class="item">
-    <span class="when">${trTarih(g.tarih)}</span>
-    <div>
-      <h3>${esc(g.baslik)}</h3>
-      <p>${esc(g.not)}</p>
-      ${g.kaynak ? `<a class="src" href="${esc(g.kaynak)}" target="_blank" rel="noopener">${esc(g.kaynakAdi || 'Kaynak')} ↗</a>` : ''}
-    </div>
-  </li>`).join('');
+if (SITE.gundem.length) {
+  $('#feed').innerHTML = SITE.gundem.map(g => `
+    <li class="item">
+      <span class="when">${trTarih(g.tarih)}</span>
+      <div>
+        <h3>${esc(g.baslik)}</h3>
+        <p>${esc(g.not)}</p>
+        ${g.kaynak ? `<a class="src" href="${esc(g.kaynak)}" target="_blank" rel="noopener">${esc(g.kaynakAdi || 'Kaynak')} ↗</a>` : ''}
+      </div>
+    </li>`).join('');
+} else {
+  $('#feed').style.display = 'none';
+  $('#feedEmpty').style.display = 'block';
+}
 
 /* --- galeri --- */
 $('#gallery').innerHTML = SITE.galeri.map(g => `
   <figure class="shot" style="margin:0">
-    <img src="${esc(g.dosya)}" alt="${esc(g.baslik)}" loading="lazy">
-    <figcaption>${esc(g.baslik)}</figcaption>
+    <img src="${esc(g.dosya)}" alt="${esc(g.baslik || 'Galeri görseli')}" loading="lazy">
+    ${g.baslik ? `<figcaption>${esc(g.baslik)}</figcaption>` : ''}
     <div class="empty">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="width:22px;height:22px;margin:0 auto"><rect x="3" y="5" width="18" height="15" rx="1"/><circle cx="9" cy="10" r="2"/><path d="m3 17 5-4 4 3 3-2 6 4"/></svg>
       <code style="font-family:var(--f-mono);font-size:.62rem;color:var(--survey);word-break:break-all">${esc(g.dosya)}</code>
