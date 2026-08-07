@@ -408,6 +408,15 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 .rise{opacity:0;transform:translateY(18px)}
 .rise.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
 @media(prefers-reduced-motion:reduce){.rise{opacity:1;transform:none}}
+   /* --- akademik profil ızgarası --- */
+.profil-baslik{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.11em;text-transform:uppercase;color:var(--slate);margin:28px 0 0}
+.profiller{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin:8px 0 0;padding:0;list-style:none}
+.profiller li{border-bottom:1px solid var(--rule)}
+.profiller a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;text-decoration:none;font-size:.9rem;transition:padding-left .22s,color .22s}
+.profiller a:hover{padding-left:8px;color:var(--mark)}
+.profiller .ok{font-family:var(--f-mono);font-size:.7rem;color:var(--slate)}
+.profiller a:hover .ok{color:var(--mark)}
+@media(max-width:520px){.profiller{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -563,6 +572,8 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
         <h2>Akademik iş birliği ve değerlendirme talepleri</h2>
         <p class="sec-note">Ortak çalışma önerileri, hakemlik talepleri, konferans davetleri ve çalışmalarıma ilişkin sorularınız için aşağıdaki adreslerden ulaşabilirsiniz.</p>
         <ul class="links" id="links"></ul>
+        <p class="profil-baslik">Akademik profiller</p>
+        <ul class="profiller" id="profiller"></ul>
       </div>
       <form class="form rise" id="contactForm">
         <label><span class="lbl">Adınız</span><input type="text" name="ad" required autocomplete="name"></label>
@@ -846,14 +857,16 @@ const SITE = {
   /* --- İLETİŞİM ---------------------------------------------------------- */
   eposta: "vyaman1977@gmail.com",
   baglantilar: [
-    { etiket: "E-posta",         deger: "vyaman1977@gmail.com",  adres: "mailto:vyaman1977@gmail.com" },
-    { etiket: "ORCID",           deger: "0000-0003-3362-3194",   adres: "https://orcid.org/0000-0003-3362-3194" },
-    { etiket: "Google Akademik", deger: "Profil",                adres: "https://scholar.google.com/citations?user=p4FciCwAAAAJ&hl=tr" },
-    { etiket: "DergiPark",       deger: "Profil",                adres: "https://dergipark.org.tr/tr/pub/@volkan-yaman-00" },
-    { etiket: "ResearchGate",    deger: "Profil",                adres: "https://www.researchgate.net/profile/Volkan-Yaman-2" },
-    { etiket: "Web of Science",  deger: "Profil",                adres: "https://www.webofscience.com/wos/author/record/OTG-7841-2025" },
-    { etiket: "Academia.edu",    deger: "Profil",                adres: "https://trakya.academia.edu/VolkanYaman" },
-    { etiket: "LinkedIn",        deger: "Profil",                adres: "https://www.linkedin.com/in/volkan-yaman" }
+    { etiket: "E-posta", deger: "vyaman1977@gmail.com",  adres: "mailto:vyaman1977@gmail.com" },
+    { etiket: "ORCID",   deger: "0000-0003-3362-3194",   adres: "https://orcid.org/0000-0003-3362-3194" }
+  ],
+  profiller: [
+    { etiket: "Google Akademik", adres: "https://scholar.google.com/citations?user=p4FciCwAAAAJ&hl=tr" },
+    { etiket: "DergiPark",       adres: "https://dergipark.org.tr/tr/pub/@volkan-yaman-00" },
+    { etiket: "ResearchGate",    adres: "https://www.researchgate.net/profile/Volkan-Yaman-2" },
+    { etiket: "Web of Science",  adres: "https://www.webofscience.com/wos/author/record/OTG-7841-2025" },
+    { etiket: "Academia.edu",    adres: "https://trakya.academia.edu/VolkanYaman" },
+    { etiket: "LinkedIn",        adres: "https://www.linkedin.com/in/volkan-yaman" }
   ]
 };
 
@@ -1043,6 +1056,9 @@ $('#gallery').querySelectorAll('img').forEach(im => {
 $('#links').innerHTML = SITE.baglantilar.map(b => `
   <li><a href="${esc(b.adres)}"${b.adres.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>
     <span class="lbl">${esc(b.etiket)}</span><span class="val">${esc(b.deger)}</span></a></li>`).join('');
+   $('#profiller').innerHTML = SITE.profiller.map(p => `
+  <li><a href="${esc(p.adres)}" target="_blank" rel="noopener">
+    <span>${esc(p.etiket)}</span><span class="ok">↗</span></a></li>`).join('');
 
 $('#contactForm').addEventListener('submit', e => {
   e.preventDefault();
