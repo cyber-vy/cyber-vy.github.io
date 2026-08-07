@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Volkan Yaman — Uluslararası Güvenlik, Siber Güvenlik, Harp Tarihi</title>
+<meta name="description" content="Dr. Volkan Yaman, bağımsız araştırmacı. Uluslararası güvenlik, siber güvenlik ve harp tarihi üzerine yayınlar, araştırma notları ve gündem değerlendirmeleri.">
+<meta name="author" content="Volkan Yaman">
+<meta property="og:title" content="Dr. Volkan Yaman — Uluslararası Güvenlik, Siber Güvenlik, Harp Tarihi">
+<meta property="og:description" content="Güvenlik kavramı, bölgesel güvenlik düzenleri ve siber uzay üzerine bağımsız araştırma.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RENK VE TİPOGRAFİ SİSTEMİ
+   ============================================================ */
+:root{
+  --paper:#E8E9E3;
+  --paper-2:#F1F2ED;
+  --ink:#14202B;
+  --ink-soft:#3D4E59;
+  --slate:#66757D;
+  --rule:#C8CBC2;
+  --rule-soft:#D8DAD2;
+  --survey:#0E6B6B;
+  --mark:#A32E3B;
+  --net-line:rgba(20,32,43,.20);
+  --net-node:rgba(20,32,43,.42);
+
+  --f-display:"Newsreader",Georgia,serif;
+  --f-body:"Archivo",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+
+  --wrap:1140px;
+  --gutter:clamp(20px,5vw,56px);
+  --sec-pad:clamp(72px,9vw,124px);
+}
+[data-theme="dark"]{
+  --paper:#101A22;
+  --paper-2:#16222C;
+  --ink:#E4E7E2;
+  --ink-soft:#B3BDC0;
+  --slate:#8B9BA1;
+  --rule:#2A3945;
+  --rule-soft:#22303B;
+  --survey:#4FB3AC;
+  --mark:#D9707A;
+  --net-line:rgba(200,220,225,.16);
+  --net-node:rgba(200,220,225,.40);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--f-body);font-size:16.5px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  transition:background .35s ease,color .35s ease;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gutter)}
+.mono{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+
+:focus-visible{outline:2px solid var(--survey);outline-offset:3px;border-radius:2px}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:12px 18px;z-index:200}
+.skip:focus{left:12px;top:12px}
+
+/* ============================================================
+   ÜST ÇUBUK
+   ============================================================ */
+.top{
+  position:sticky;top:0;z-index:100;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--rule);
+}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:66px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.brand svg{width:19px;height:19px;color:var(--mark);flex-shrink:0}
+.brand b{font-family:var(--f-display);font-weight:400;font-size:1.06rem;letter-spacing:.01em;white-space:nowrap}
+.brand span{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;color:var(--slate);text-transform:uppercase;display:block;margin-top:-3px}
+
+.nav{display:flex;align-items:center;gap:1px}
+.nav a{
+  text-decoration:none;font-size:.8rem;letter-spacing:.01em;font-weight:500;
+  padding:8px 9px;border-radius:3px;color:var(--ink-soft);
+  transition:color .2s,background .2s;position:relative;white-space:nowrap;
+}
+.nav a:hover{color:var(--ink);background:var(--rule-soft)}
+.nav a.on{color:var(--mark)}
+.nav a.on::after{content:"";position:absolute;left:9px;right:9px;bottom:3px;height:1.5px;background:var(--mark)}
+
+.tools{display:flex;align-items:center;gap:6px}
+.icon-btn{
+  width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--rule);
+  background:transparent;border-radius:3px;transition:border-color .2s,background .2s;
+}
+.icon-btn:hover{border-color:var(--ink-soft);background:var(--rule-soft)}
+.icon-btn svg{width:16px;height:16px}
+.burger{display:none}
+[data-theme="dark"] .sun{display:none}
+[data-theme="light"] .moon{display:none}
+
+@media(max-width:1000px){
+  .nav{
+    position:fixed;inset:66px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--paper);border-bottom:1px solid var(--rule);padding:8px var(--gutter) 20px;
+    transform:translateY(-12px);opacity:0;pointer-events:none;transition:.25s ease;
+    max-height:calc(100vh - 66px);overflow:auto;
+  }
+  .nav.open{transform:none;opacity:1;pointer-events:auto}
+  .nav a{padding:13px 4px;border-bottom:1px solid var(--rule-soft);font-size:.95rem;border-radius:0}
+  .nav a.on::after{display:none}
+  .burger{display:grid}
+}
+
+/* ============================================================
+   HERO — NİRENGİ AĞI
+   ============================================================ */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
+#net{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-in{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(28px,5vw,64px);align-items:center;
+  padding-block:clamp(60px,10vw,120px);
+}
+.coord{color:var(--survey);display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.coord::before{content:"";width:26px;height:1px;background:var(--survey)}
+
+h1{
+  font-family:var(--f-display);font-weight:300;
+  font-size:clamp(2.25rem,6vw,4.05rem);line-height:1.05;letter-spacing:-.022em;
+  margin:0 0 26px;text-wrap:balance;
+}
+h1 em{font-style:italic;color:var(--mark)}
+.lede{
+  font-size:clamp(1.02rem,1.6vw,1.13rem);color:var(--ink-soft);
+  max-width:58ch;margin:0 0 34px;line-height:1.68;
+}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  font-family:var(--f-mono);font-size:.73rem;letter-spacing:.13em;text-transform:uppercase;
+  padding:13px 22px;border:1px solid var(--ink);border-radius:2px;
+  transition:.22s ease;
+}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.ghost{border-color:var(--rule);color:var(--ink-soft)}
+.btn.ghost:hover{border-color:var(--ink);background:transparent;color:var(--ink)}
+.btn svg{width:13px;height:13px}
+
+.portrait{position:relative}
+.frame{
+  position:relative;aspect-ratio:4/5;border:1px solid var(--rule);background:var(--paper-2);
+  overflow:hidden;
+}
+.frame img{width:100%;height:100%;object-fit:cover;filter:grayscale(.18) contrast(1.03)}
+.frame .empty{
+  display:none;position:absolute;inset:0;place-content:center;text-align:center;
+  padding:24px;color:var(--slate);gap:8px;
+}
+.frame.is-empty .empty{display:grid}
+.frame.is-empty img{display:none}
+.empty svg{width:26px;height:26px;margin:0 auto;color:var(--rule)}
+.empty code{font-family:var(--f-mono);font-size:.68rem;color:var(--survey);word-break:break-all}
+.tick{position:absolute;width:11px;height:11px;border:1px solid var(--mark)}
+.tick.tl{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.tick.br{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.cap{margin-top:11px;color:var(--slate);font-size:.68rem;line-height:1.5}
+
+@media(max-width:820px){
+  .hero-in{grid-template-columns:1fr}
+  .portrait{max-width:250px;order:-1}
+}
+
+/* ============================================================
+   BÖLÜM BAŞLIKLARI
+   ============================================================ */
+section{scroll-margin-top:80px}
+.band{padding-block:var(--sec-pad);border-bottom:1px solid var(--rule)}
+.band.alt{background:var(--paper-2)}
+
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(30px,4vw,50px)}
+.sec-head .mono{color:var(--survey);white-space:nowrap}
+.sec-head .bar{flex:1;height:1px;background:var(--rule);position:relative}
+.sec-head .bar::after{content:"";position:absolute;right:0;top:-3px;width:1px;height:7px;background:var(--mark)}
+h2{
+  font-family:var(--f-display);font-weight:300;letter-spacing:-.02em;line-height:1.12;
+  font-size:clamp(1.85rem,3.6vw,2.7rem);margin:0 0 18px;
+}
+.sec-note{color:var(--slate);max-width:66ch;margin:0 0 clamp(28px,4vw,44px);font-size:.95rem}
+
+/* ============================================================
+   ÇALIŞMA ALANLARI
+   ============================================================ */
+.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.field{background:var(--paper);padding:clamp(24px,3vw,34px);transition:background .25s}
+.field:hover{background:var(--paper-2)}
+.field .num{font-family:var(--f-mono);font-size:.68rem;color:var(--mark);letter-spacing:.12em}
+.field h3{font-family:var(--f-display);font-weight:400;font-size:1.32rem;margin:14px 0 12px;line-height:1.25}
+.field p{margin:0;color:var(--ink-soft);font-size:.92rem;line-height:1.65}
+.field ul{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.field li{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.06em;color:var(--slate);border:1px solid var(--rule);padding:4px 8px;border-radius:2px}
+@media(max-width:800px){.fields{grid-template-columns:1fr}}
+
+/* ============================================================
+   HAKKIMDA
+   ============================================================ */
+.about{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.bio p{margin:0 0 18px;font-size:1.02rem;line-height:1.75;color:var(--ink-soft)}
+.bio p:first-child{font-family:var(--f-display);font-size:1.28rem;font-weight:300;line-height:1.55;color:var(--ink)}
+.bio p:last-child{margin-bottom:0}
+
+.facts{border-top:2px solid var(--ink)}
+.fact{display:grid;grid-template-columns:88px 1fr;gap:14px;padding:15px 0;border-bottom:1px solid var(--rule)}
+.fact dt{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.11em;text-transform:uppercase;color:var(--slate);padding-top:3px}
+.fact dd{margin:0;font-size:.93rem;line-height:1.5}
+.fact dd small{display:block;color:var(--slate);font-size:.8rem;margin-top:2px}
+@media(max-width:800px){.about{grid-template-columns:1fr}}
+
+/* ============================================================
+   EĞİTİM
+   ============================================================ */
+.edu{margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.edu li{border-bottom:1px solid var(--rule);padding:22px 0;display:grid;grid-template-columns:158px 1fr;gap:24px;align-items:baseline}
+.edu .deg{font-family:var(--f-mono);font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mark)}
+.edu h3{margin:0 0 5px;font-family:var(--f-display);font-weight:400;font-size:1.2rem;line-height:1.35}
+.edu p{margin:0;color:var(--slate);font-size:.88rem;line-height:1.55}
+.edu p b{font-weight:500;color:var(--ink-soft)}
+@media(max-width:640px){.edu li{grid-template-columns:1fr;gap:8px}}
+
+/* ============================================================
+   FİLTRE ARAÇLARI
+   ============================================================ */
+.controls{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:26px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{
+  font-family:var(--f-mono);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;
+  padding:7px 13px;border:1px solid var(--rule);background:transparent;border-radius:2px;
+  color:var(--slate);transition:.2s;
+}
+.chip:hover{border-color:var(--ink-soft);color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.search{position:relative;flex-shrink:0}
+.search input{
+  font-family:var(--f-mono);font-size:.75rem;padding:9px 12px 9px 34px;width:230px;
+  border:1px solid var(--rule);background:transparent;color:var(--ink);border-radius:2px;
+}
+.search input::placeholder{color:var(--slate);letter-spacing:.05em}
+.search input:focus{border-color:var(--survey);outline:none}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--slate)}
+@media(max-width:560px){.search input{width:100%}.search{width:100%}}
+
+/* ============================================================
+   YAYIN LİSTESİ
+   ============================================================ */
+.pubs{border-top:2px solid var(--ink);margin:0;padding:0;list-style:none}
+.pub{border-bottom:1px solid var(--rule);padding:26px 0;display:grid;grid-template-columns:92px 1fr auto;gap:22px;align-items:start}
+.pub .yr{font-family:var(--f-mono);font-size:.78rem;color:var(--mark);padding-top:4px}
+.pub h3{margin:0 0 8px;font-family:var(--f-display);font-weight:400;font-size:1.22rem;line-height:1.35}
+.pub .who{margin:0 0 6px;font-size:.85rem;color:var(--ink-soft)}
+.pub .venue{color:var(--slate);font-size:.88rem;margin:0 0 11px;line-height:1.55}
+.pub .venue i{font-style:italic;color:var(--ink-soft)}
+.pub .meta{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.tag{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;padding:3px 8px;border:1px solid var(--rule);border-radius:2px;color:var(--slate)}
+.tag.status{border-color:var(--survey);color:var(--survey)}
+.pub .go{
+  font-family:var(--f-mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;color:var(--ink-soft);border-bottom:1px solid var(--rule);padding-bottom:2px;
+  white-space:nowrap;transition:.2s;
+}
+.pub .go:hover{color:var(--mark);border-color:var(--mark)}
+@media(max-width:720px){
+  .pub{grid-template-columns:1fr;gap:9px}
+  .pub .yr{padding-top:0}
+}
+
+/* ============================================================
+   YAZILAR
+   ============================================================ */
+.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.note{
+  background:var(--paper);padding:clamp(22px,2.6vw,30px);text-align:left;border:0;
+  display:flex;flex-direction:column;gap:11px;transition:background .25s;
+}
+.note:hover{background:var(--paper-2)}
+.note .top-line{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.note time{font-family:var(--f-mono);font-size:.65rem;color:var(--slate);letter-spacing:.08em}
+.note .rt{font-family:var(--f-mono);font-size:.62rem;color:var(--survey)}
+.note h3{margin:0;font-family:var(--f-display);font-weight:400;font-size:1.26rem;line-height:1.28}
+.note p{margin:0;color:var(--ink-soft);font-size:.9rem;line-height:1.62}
+.note .more{margin-top:auto;padding-top:8px;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.11em;text-transform:uppercase;color:var(--mark);display:flex;align-items:center;gap:7px}
+.note .more svg{width:11px;height:11px;transition:transform .2s}
+.note:hover .more svg{transform:translateX(4px)}
+
+/* ============================================================
+   GÜNDEM
+   ============================================================ */
+.feed{margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.item{padding:20px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:104px 1fr;gap:22px}
+.item .when{font-family:var(--f-mono);font-size:.68rem;color:var(--slate);letter-spacing:.06em;padding-top:3px}
+.item h3{margin:0 0 6px;font-size:1.02rem;font-weight:600;line-height:1.4}
+.item p{margin:0 0 8px;color:var(--ink-soft);font-size:.91rem;line-height:1.6}
+.item .src{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.08em;color:var(--survey);text-decoration:none;text-transform:uppercase}
+.item .src:hover{text-decoration:underline}
+@media(max-width:640px){.item{grid-template-columns:1fr;gap:7px}.item .when{padding-top:0}}
+
+/* ============================================================
+   GALERİ
+   ============================================================ */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.shot{position:relative;aspect-ratio:1;border:1px solid var(--rule);background:var(--paper-2);overflow:hidden;padding:0;display:block}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .4s;filter:grayscale(.2)}
+.shot:hover img{transform:scale(1.045);filter:grayscale(0)}
+.shot figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:22px 13px 11px;text-align:left;
+  background:linear-gradient(transparent,rgba(20,32,43,.85));color:#E8E9E3;
+  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.07em;
+  opacity:0;transition:opacity .3s;
+}
+.shot:hover figcaption,.shot:focus-visible figcaption{opacity:1}
+.shot .empty{position:absolute;inset:0;display:none;place-content:center;text-align:center;padding:16px;gap:6px;color:var(--slate)}
+.shot.is-empty .empty{display:grid}
+.shot.is-empty img,.shot.is-empty figcaption{display:none}
+
+/* ============================================================
+   İLETİŞİM
+   ============================================================ */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.links{margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.links li{border-bottom:1px solid var(--rule)}
+.links a{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:16px 0;text-decoration:none;transition:padding-left .22s,color .22s;
+}
+.links a:hover{padding-left:11px;color:var(--mark)}
+.links .lbl{font-family:var(--f-mono);font-size:.65rem;letter-spacing:.11em;text-transform:uppercase;color:var(--slate)}
+.links .val{font-size:.95rem;text-align:right;word-break:break-word}
+
+.form{display:flex;flex-direction:column;gap:15px}
+.form label{display:flex;flex-direction:column;gap:6px}
+.form .lbl{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.11em;text-transform:uppercase;color:var(--slate)}
+.form input,.form textarea{
+  font-family:var(--f-body);font-size:.94rem;padding:11px 13px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:2px;width:100%;
+}
+.form textarea{resize:vertical;min-height:132px;line-height:1.6}
+.form input:focus,.form textarea:focus{border-color:var(--survey);outline:none}
+.form .btn{justify-content:center;border-color:var(--ink);align-self:flex-start}
+.form-note{font-size:.78rem;color:var(--slate);margin:0;line-height:1.55}
+@media(max-width:800px){.contact{grid-template-columns:1fr}}
+
+/* ============================================================
+   OKUMA PANELİ
+   ============================================================ */
+.reader{
+  position:fixed;inset:0;z-index:200;display:none;
+  background:color-mix(in srgb,var(--ink) 55%,transparent);backdrop-filter:blur(5px);
+}
+.reader.open{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.sheet{
+  position:absolute;top:0;right:0;bottom:0;width:min(760px,100%);
+  background:var(--paper);border-left:1px solid var(--rule);
+  overflow-y:auto;padding:clamp(26px,4vw,54px);
+  animation:slide .32s cubic-bezier(.22,1,.36,1);
+}
+@keyframes slide{from{transform:translateX(34px);opacity:.4}to{transform:none;opacity:1}}
+.sheet .close{position:sticky;top:0;float:right;margin-left:16px;background:var(--paper);z-index:3}
+.sheet .kicker{color:var(--survey);margin-bottom:14px;display:block}
+.sheet h2{font-size:clamp(1.7rem,3.5vw,2.35rem);margin-bottom:14px;max-width:24ch}
+.sheet .byline{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.09em;color:var(--slate);text-transform:uppercase;padding-bottom:22px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+.sheet .body{font-family:var(--f-display);font-size:1.11rem;line-height:1.78;color:var(--ink-soft)}
+.sheet .body p{margin:0 0 20px}
+.sheet .body h3{font-family:var(--f-body);font-size:.98rem;font-weight:600;color:var(--ink);margin:32px 0 12px;letter-spacing:.01em}
+.sheet .body blockquote{margin:26px 0;padding-left:20px;border-left:2px solid var(--mark);font-style:italic;color:var(--ink)}
+
+/* ============================================================
+   ALT BİLGİ
+   ============================================================ */
+footer{padding-block:44px;font-size:.82rem;color:var(--slate)}
+.foot-in{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+footer a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule)}
+footer a:hover{color:var(--mark);border-color:var(--mark)}
+
+.rise{opacity:0;transform:translateY(18px)}
+.rise.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+@media(prefers-reduced-motion:reduce){.rise{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+        <path d="M12 3 21.5 20H2.5z"/><circle cx="12" cy="14" r="2.2"/><path d="M12 9v2.5M12 16.5V19M8.5 14h1.3M14.2 14h1.3"/>
+      </svg>
+      <span style="display:block"><b>Volkan Yaman</b><span>Dr. · Uluslararası İlişkiler</span></span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Ana menü">
+      <a href="#hakkimda">Hakkımda</a>
+      <a href="#alanlar">Çalışma Alanları</a>
+      <a href="#egitim">Eğitim</a>
+      <a href="#yayinlar">Yayınlar</a>
+      <a href="#yazilar">Yazılar</a>
+      <a href="#gundem">Gündem</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+
+    <div class="tools">
+      <button class="icon-btn" id="theme" aria-label="Koyu ve açık görünüm arasında geçiş yap">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn burger" id="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <svg id="net" aria-hidden="true"></svg>
+  <div class="wrap hero-in">
+    <div>
+      <p class="mono coord" id="coordLine">41°44′K 27°13′D — Kırklareli, Türkiye</p>
+      <h1>Güvenliği kavram, coğrafya ve <em>tarih</em> arasında okumak</h1>
+      <p class="lede">Uluslararası İlişkiler doktoru, bağımsız araştırmacı. Güvenlik kavramının nasıl genişlediğini, bölgesel güvenlik düzenlerinin hangi dinamiklerle kurulduğunu ve siber uzayın bu tabloya ne eklediğini araştırıyorum. Sistem mühendisliği, uluslararası ilişkiler ve tarih alanlarındaki lisans eğitimim, bu soruları üç ayrı zeminden aynı anda ele almamı sağlıyor.</p>
+      <div class="cta-row">
+        <a class="btn" href="#yayinlar">Yayınları gör
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn ghost" href="#iletisim">İletişime geç</a>
+      </div>
+    </div>
+
+    <figure class="portrait" style="margin:0">
+      <div class="frame" id="portraitFrame">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <img src="foto/portre.jpg" alt="Dr. Volkan Yaman portresi" id="portraitImg">
+        <div class="empty">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="15" rx="1"/><circle cx="9" cy="10" r="2"/><path d="m3 17 5-4 4 3 3-2 6 4"/></svg>
+          <p style="margin:0;font-size:.8rem;line-height:1.5">Portre fotoğrafı burada görünecek.<br>Dosyayı şu adla ekleyin:</p>
+          <code>foto/portre.jpg</code>
+        </div>
+      </div>
+      <figcaption class="cap mono" style="letter-spacing:.09em">Bağımsız araştırmacı · Kırklareli</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== ÇALIŞMA ALANLARI ===================== -->
+<section id="alanlar" class="band">
+  <div class="wrap">
+    <div class="sec-head rise"><span class="mono">Çalışma Alanları</span><span class="bar"></span></div>
+    <h2 class="rise">Üç eksen, tek soru: güvenlik nerede ve nasıl üretiliyor?</h2>
+    <p class="sec-note rise">Alanlar birbirinden bağımsız değil. Güvenlik kavramının genişlemesi bölgesel düzenlerin nasıl okunacağını belirliyor, siber uzay bu kavram setini zorluyor, harp tarihi ise bugünün varsayımlarının nereden geldiğini gösteriyor.</p>
+    <div class="fields rise" id="fields"></div>
+  </div>
+</section>
+
+<!-- ===================== HAKKIMDA ===================== -->
+<section id="hakkimda" class="band alt">
+  <div class="wrap">
+    <div class="sec-head rise"><span class="mono">Hakkımda</span><span class="bar"></span></div>
+    <div class="about">
+      <div class="bio rise" id="bio"></div>
+      <div class="rise">
+        <dl class="facts" id="facts" style="margin:0"></dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EĞİTİM ===================== -->
+<section id="egitim" class="band">
+  <div class="wrap">
+    <div class="sec-head rise"><span class="mono">Eğitim</span><span class="bar"></span></div>
+    <h2 class="rise">Mühendislikten tarihe uzanan bir hazırlık</h2>
+    <p class="sec-note rise">Üç farklı lisans alanı, enerji güvenliği üzerine bir yüksek lisans ve siber uzay jeopolitiği üzerine bir doktora.</p>
+    <ul class="edu rise" id="eduList"></ul>
+  </div>
+</section>
+
+<!-- ===================== YAYINLAR ===================== -->
+<section id="yayinlar" class="band alt">
+  <div class="wrap">
+    <div class="sec-head rise"><span class="mono">Yayınlar</span><span class="bar"></span></div>
+    <h2 class="rise">Yayımlanmış eserler</h2>
+    <p class="sec-note rise">Türe göre süzün ya da başlık, dergi ve anahtar kelime içinde arayın.</p>
+
+    <div class="controls rise">
+      <div class="chips" id="pubChips" role="group" aria-label="Yayın türüne göre süz"></div>
+      <div class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="pubSearch" placeholder="Yayınlarda ara" aria-label="Yayınlarda ara">
+      </div>
+    </div>
+
+    <ul class="pubs" id="pubList"></ul>
+    <p id="pubEmpty" class="sec-note" style="display:none;margin:28px 0 0">Bu ölçütlere uyan yayın yok. Süzgeci genişletin ya da aramayı temizleyin.</p>
+  </div>
+</section>
+
+<!-- ===================== YAZILAR ===================== -->
+<section id="yazilar" class="band">
+  <div class="wrap">
+    <div class="sec-head rise"><span class="mono">Araştırma Yazıları</span><span class="bar"></span></div>
+    <h2 class="rise">Hakemli sürecin dışında kalan notlar</h2>
+    <p class="sec-note rise">Olgunlaşmakta olan argümanlar, kavram tartışmaları ve okuma notları. Açmak için bir yazıya tıklayın.</p>
+    <div class="notes rise" id="noteGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== GÜNDEM ===================== -->
+<section id="gundem" class="band alt">
+  <div class="wrap">
+    <div class="sec-head rise"><span class="mono">Gündem</span><span class="bar"></span></div>
+    <h2 class="rise">Alandan takip ettiklerim</h2>
+    <p class="sec-note rise">Uluslararası güvenlik gündeminden dikkat çeken gelişmeler, kısa değerlendirmelerle.</p>
+    <ul class="feed rise" id="feed"></ul>
+  </div>
+</section>
+
+<!-- ===================== GALERİ ===================== -->
+<section id="galeri" class="band">
+  <div class="wrap">
+    <div class="sec-head rise"><span class="mono">Galeri</span><span class="bar"></span></div>
+    <h2 class="rise">Konferanslar, saha ve arşiv</h2>
+    <p class="sec-note rise">Sunumlardan, çalışma masasından ve harp tarihi araştırmalarında ziyaret ettiğim yerlerden kareler.</p>
+    <div class="gallery rise" id="gallery"></div>
+  </div>
+</section>
+
+<!-- ===================== İLETİŞİM ===================== -->
+<section id="iletisim" class="band alt">
+  <div class="wrap">
+    <div class="sec-head rise"><span class="mono">İletişim</span><span class="bar"></span></div>
+    <div class="contact">
+      <div class="rise">
+        <h2>Ortak çalışma, hakemlik ve söyleşi taleplerine açığım</h2>
+        <p class="sec-note">Yayın daveti, konferans çağrısı ya da çalışmalarımla ilgili bir sorunuz varsa yazın. Genellikle birkaç gün içinde dönüş yapıyorum.</p>
+        <ul class="links" id="links"></ul>
+      </div>
+      <form class="form rise" id="contactForm">
+        <label><span class="lbl">Adınız</span><input type="text" name="ad" required autocomplete="name"></label>
+        <label><span class="lbl">E-posta adresiniz</span><input type="email" name="eposta" required autocomplete="email"></label>
+        <label><span class="lbl">Konu</span><input type="text" name="konu" required></label>
+        <label><span class="lbl">Mesajınız</span><textarea name="mesaj" required></textarea></label>
+        <button type="submit" class="btn">Mesajı gönder
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="form-note" id="formNote">Gönder’e bastığınızda mesaj kendi e-posta programınızda hazır hâlde açılır. Böylece yazışma doğrudan sizinle benim aramda kalır.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <p style="margin:0">© <span id="yr"></span> Volkan Yaman. Metinler kaynak gösterilerek alıntılanabilir.</p>
+    <p style="margin:0" class="mono" id="footCoord"></p>
+  </div>
+</footer>
+
+<!-- ===================== OKUMA PANELİ ===================== -->
+<div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="readerTitle">
+  <article class="sheet" id="sheet">
+    <button class="icon-btn close" id="readerClose" aria-label="Yazıyı kapat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <span class="mono kicker" id="readerKicker"></span>
+    <h2 id="readerTitle"></h2>
+    <p class="byline" id="readerByline"></p>
+    <div class="body" id="readerBody"></div>
+  </article>
+</div>
+
+<script>
+/* ============================================================================
+   İÇERİK — SİTEDEKİ HER ŞEY BURADAN DÜZENLENİR
+   Aşağıdaki bölümleri değiştirmeniz yeterli. Tasarıma dokunmanız gerekmez.
+   ============================================================================ */
+
+const SITE = {
+
+  /* --- Koordinat satırı (hero ve alt bilgide görünür) --- */
+  koordinat: "41°44′K 27°13′D — Kırklareli, Türkiye",
+
+  /* --- ÇALIŞMA ALANLARI ------------------------------------------------- */
+  alanlar: [
+    {
+      etiket: "Eksen A",
+      baslik: "Uluslararası güvenlik çalışmaları",
+      metin: "Güvenlik kavramının devlet merkezli dar tanımdan çıkıp toplumsal, ekonomik ve çevresel boyutları kapsayacak biçimde genişlemesini inceliyorum. Bölgesel güvenlik düzenlerinin nasıl oluştuğu ve güvenlikleştirme pratiklerinin karar alma süreçlerine etkisi temel ilgi noktalarım.",
+      anahtar: ["Kavramsal çerçeve", "Bölgesel güvenlik kompleksi", "Güvenlikleştirme", "Enerji güvenliği"]
+    },
+    {
+      etiket: "Eksen B",
+      baslik: "Siber güvenlik ve siber uzay jeopolitiği",
+      metin: "Devletlerin siber uzayı bir egemenlik alanı olarak kurma çabalarını eleştirel jeopolitik yaklaşımıyla ele alıyorum. Altyapı üzerindeki denetim, veri akışlarının siyasallaşması ve bağlayıcı bir normatif çerçevenin neden oluşmadığı üzerinde duruyorum.",
+      anahtar: ["Egemenlik", "Eleştirel jeopolitik", "Norm boşluğu", "Kritik altyapı"]
+    },
+    {
+      etiket: "Eksen C",
+      baslik: "Harp tarihi",
+      metin: "Askerî tarihi geçmişin kaydı olarak değil, bugünün stratejik varsayımlarının nereden geldiğini anlamanın yolu olarak okuyorum. Teknolojik dönüşümlerin doktrini nasıl yeniden yazdığı ve hukukun bu dönüşümlerin gerisinde kalma biçimleri özel ilgi alanım.",
+      anahtar: ["Askerî doktrin", "Teknoloji ve savaş", "Strateji tarihi"]
+    }
+  ],
+
+  /* --- HAKKIMDA: biyografi paragrafları ---------------------------------- */
+  /* İlk paragraf otomatik olarak büyük puntoyla vurgulanır. */
+  biyografi: [
+    "Uluslararası İlişkiler alanında doktora derecesine sahip bağımsız bir araştırmacıyım. Çalışmalarım uluslararası güvenlik, siber güvenlik ve harp tarihi alanlarında yoğunlaşıyor.",
+    "Akademik hazırlığım alışılmadık biçimde geniş bir tabana yaslanıyor. Sistem mühendisliği, uluslararası ilişkiler ve tarih olmak üzere üç ayrı lisans derecem var. Mühendislik eğitimi bana teknik altyapıyı ve sistem düşüncesini, tarih eğitimi ise olayları uzun süreli örüntüler içinde görme alışkanlığını kazandırdı. Uluslararası ilişkiler bu ikisini birleştirdiğim zemin oldu.",
+    "Yüksek lisans çalışmamı enerji güvenliği üzerine yaptım. Bu, güvenliğin yalnızca askerî bir mesele olmadığını, kaynak akışları ve bağımlılık ilişkileri üzerinden de kurulduğunu gösteren verimli bir başlangıç noktasıydı.",
+    "Doktora tezimde siber uzayı, klasik jeopolitiğin kara, deniz ve hava için geliştirdiği kavramlarla açıklanamayan bir alan olarak ele aldım. Eleştirel jeopolitik yazını, özellikle mekânın söylemsel olarak kurulduğuna dair yaklaşım, bu tartışmayı yürütmek için verimli bir zemin sundu.",
+    "Yayımlanmış çalışmalarım uluslararası güvenlik çalışmalarının kavramsal çerçevesi ve Güney Çin Denizi'ndeki bölgesel güvenlik dinamikleri üzerine. Hâlen hem siber uzay jeopolitiği hem de normatif güvenlik teorisi alanlarında yeni çalışmalar yürütüyorum.",
+    "Bağımsız çalışıyorum. Bu, kurumsal desteğin sınırlı olması anlamına geliyor; buna karşılık araştırma gündemimi tamamen kendim belirleyebiliyorum."
+  ],
+
+  /* --- HAKKIMDA: künye satırları ----------------------------------------- */
+  kunye: [
+    { baslik: "Unvan",    deger: "Doktor (Ph.D.)", alt: "Uluslararası İlişkiler" },
+    { baslik: "Konum",    deger: "Kırklareli, Türkiye" },
+    { baslik: "Statü",    deger: "Bağımsız araştırmacı" },
+    { baslik: "Diller",   deger: "Türkçe, İngilizce" },
+    { baslik: "Alanlar",  deger: "Uluslararası güvenlik", alt: "Siber güvenlik · Harp tarihi" },
+    { baslik: "Hakemlik", deger: "Talep üzerine değerlendirme yapıyorum" }
+  ],
+
+  /* --- EĞİTİM ------------------------------------------------------------
+     kurum ve yil alanlarını kendi bilgilerinizle doldurun.
+     Boş bırakılan alanlar sayfada hiç görünmez.
+     ------------------------------------------------------------------- */
+  egitim: [
+    {
+      derece: "Doktora",
+      alan: "Uluslararası İlişkiler",
+      kurum: "",
+      yil: "",
+      tez: "Uluslararası Güvenlik Boyutunda Siber Uzay Jeopolitiği"
+    },
+    {
+      derece: "Yüksek Lisans",
+      alan: "Uluslararası İlişkiler",
+      kurum: "",
+      yil: "",
+      tez: "Enerji güvenliği alanında"
+    },
+    {
+      derece: "Lisans",
+      alan: "Sistem Mühendisliği",
+      kurum: "",
+      yil: "",
+      tez: ""
+    },
+    {
+      derece: "Lisans",
+      alan: "Uluslararası İlişkiler",
+      kurum: "",
+      yil: "",
+      tez: ""
+    },
+    {
+      derece: "Lisans",
+      alan: "Tarih",
+      kurum: "",
+      yil: "",
+      tez: ""
+    }
+  ],
+
+  /* --- YAYINLAR ----------------------------------------------------------
+     Yalnızca yayımlanmış eserler listelenir.
+     tur: "Makale" | "Kitap Bölümü"  (yeni tür eklerseniz süzgeç kendiliğinden büyür)
+     yazarlar: tek yazarlıysa "" bırakın, satır gösterilmez.
+     durum: normalde boş. Doluysa vurgulu etiket olarak görünür.
+     baglanti: DOI ya da URL. Yoksa "" bırakın, bağlantı gösterilmez.
+     ------------------------------------------------------------------- */
+  yayinlar: [
+    {
+      yil: "2026",
+      tur: "Makale",
+      baslik: "Bölgesel Güvenlik Kompleksi Teorisi Bağlamında Güney Çin Denizi’nde Güvenlik: Aktörler, Politikalar ve Süreçler",
+      yazarlar: "Volkan Yaman, Sibel Turan",
+      dergi: "Güvenlik Stratejileri Dergisi",
+      not: "Cilt 22, Sayı 53, ss. 1-22 · 27 Nisan 2026",
+      durum: "",
+      anahtar: "bölgesel güvenlik kompleksi güney çin denizi ASEAN egemenlik askerileşme çin abd",
+      baglanti: ""
+    },
+    {
+      yil: "2021",
+      tur: "Kitap Bölümü",
+      baslik: "Uluslararası Güvenlik Çalışmaları: Kavramsal Çerçeve",
+      yazarlar: "",
+      dergi: "Güvenliğin Değişen Yüzü: Temel Yaklaşımlardan Güncel Uygulamalara",
+      not: "1. Bölüm · Gazi Kitabevi, 2021 · ISBN 978-625-8443-17-2",
+      durum: "",
+      anahtar: "uluslararası güvenlik çalışmaları kavramsal çerçeve güvenlik teorileri",
+      baglanti: ""
+    }
+    /* Yeni yayın eklemek için yukarıdaki bloklardan birini kopyalayıp
+       virgülle ayırarak buraya yapıştırın. Listeyi yeniden sıralamanız
+       gerekmez, sayfada yazdığınız sırayla görünür. */
+  ],
+
+  /* --- ARAŞTIRMA YAZILARI -------------------------------------------------
+     govde: HTML kabul eder. <p>, <h3>, <blockquote> kullanabilirsiniz.
+     ------------------------------------------------------------------- */
+  yazilar: [
+    {
+      tarih: "2026-07-18",
+      etiket: "Kavram",
+      baslik: "Güvenlik kimin güvenliği?",
+      ozet: "Kavramın Soğuk Savaş sonrasında genişlemesi analitik bir kazanç mı yoksa her şeyi kapsayarak hiçbir şeyi açıklamayan bir bulanıklık mı? Tartışmanın iki ucu da haklı sayılabilir.",
+      sure: "7 dk",
+      govde: `
+        <p>Güvenlik çalışmalarının klasik dönemi net bir cevaba dayanıyordu: güvenliğin öznesi devletti, tehdit askerî nitelikteydi, çözüm caydırıcılıktı. Soğuk Savaş'ın sona ermesiyle bu üçlü tanım hızla dağıldı.</p>
+        <h3>Genişlemenin iki yönü</h3>
+        <p>Kavram iki eksende genişledi. Dikey eksende öznesi değişti: devletin yanına birey, toplum ve insanlık eklendi. İnsani güvenlik yaklaşımı bu genişlemenin en belirgin ifadesi. Yatay eksende ise tehdit tanımı genişledi; ekonomik kırılganlık, çevresel bozulma, salgın hastalık ve enerji arz kesintisi güvenlik başlığı altına girdi.</p>
+        <p>Kendi çalışmamda enerji güvenliği bu genişlemenin ne kadar verimli olabileceğini gösterdi. Bir devletin enerji bağımlılığı, hiçbir askerî tehdit içermeksizin dış politika seçeneklerini daraltabiliyor. Bunu askerî terimlerle anlatmak mümkün değil.</p>
+        <h3>Karşı itiraz</h3>
+        <p>Buna karşılık geleneksel yaklaşımın itirazı ciddiye alınmayı hak ediyor. Her sorunu güvenlik başlığına taşımak kavramın ayırt edici gücünü tüketiyor. Eğer her şey güvenlik meselesiyse, güvenlik kelimesi hiçbir şeyi işaret etmiyor demektir.</p>
+        <blockquote>Kavramın genişlemesi tek başına bir sorun değil. Sorun, genişlemenin hangi ölçütle durdurulacağının belirsiz kalması.</blockquote>
+        <p>Güvenlikleştirme yaklaşımı burada kullanışlı bir çıkış sunuyor. Bir konunun doğası gereği güvenlik meselesi olup olmadığını sormak yerine, hangi aktörün onu güvenlik meselesi olarak sunduğunu ve bu sunumun hangi olağanüstü yetkileri meşru kıldığını soruyor. Böylece genişleme bir tanım sorunu olmaktan çıkıp bir siyaset sorununa dönüşüyor.</p>
+      `
+    },
+    {
+      tarih: "2026-06-14",
+      etiket: "Kuram",
+      baslik: "Bölgesel güvenlik kompleksi teorisi ne açıklar, ne açıklamaz",
+      ozet: "Coğrafi yakınlık ve karşılıklı tehdit algısı bir bölgeyi anlamlı bir analiz birimi hâline getiriyor. Ancak teorinin dışarıda bıraktığı şeyler de en az açıkladıkları kadar öğretici.",
+      sure: "8 dk",
+      govde: `
+        <p>Bölgesel güvenlik kompleksi teorisi, güvenlik analizinin ne küresel sistem ne de tekil devlet düzeyinde yapılmasının yeterli olduğunu savunuyor. Devletlerin güvenlik kaygıları çoğunlukla komşularına bağlı olduğu için, anlamlı analiz birimi bölgedir.</p>
+        <h3>Teorinin gücü</h3>
+        <p>Yaklaşımın en güçlü yanı, bir bölgedeki güvenlik ilişkilerinin birbirinden ayrılamayacağını göstermesi. Bir devletin savunma harcamasını artırması komşusunda karşılık üretiyor, bu karşılık üçüncü bir devleti etkiliyor. Bu örüntüyü ancak bölge ölçeğinde görebiliyorsunuz.</p>
+        <p>Güney Çin Denizi üzerine yürüttüğüm çalışmada bu yaklaşım, deniz alanının Güneydoğu Asya güvenlik mimarisi içinde ayrı bir alt kompleks oluşturduğunu görmemi sağladı. Örtüşen egemenlik iddiaları, yoğun askerîleştirme ve büyük güç rekabeti bir arada bu ayrışmayı üretiyor.</p>
+        <h3>Sınırları</h3>
+        <p>Teorinin iki zayıf noktası var. Birincisi, dış güçlerin bölgeye nüfuzunu ikincil bir değişken olarak ele alma eğilimi. Oysa bazı bölgelerde dış aktör, bölge içi dinamiklerden daha belirleyici olabiliyor.</p>
+        <p>İkincisi ve daha önemlisi, coğrafi yakınlığa dayalı bir teorinin coğrafyanın belirleyiciliğini yitirdiği alanlarda ne yapacağı belirsiz. Siber alanda komşuluk kavramının karşılığı yok. Bu, teorinin geçersiz olduğu anlamına gelmiyor; kapsamının nerede bittiğini bilmek gerektiği anlamına geliyor.</p>
+      `
+    },
+    {
+      tarih: "2026-04-27",
+      etiket: "Harp tarihi",
+      baslik: "Yeni silah, eski tartışma: teknolojik eşiklerde hukukun gecikmesi",
+      ozet: "Denizaltıdan hava bombardımanına, her teknolojik eşikte benzer bir kavramsal gecikme yaşandı. Bugünün tartışmaları bu örüntünün dışında değil.",
+      sure: "8 dk",
+      govde: `
+        <p>Askerî teknolojideki her büyük sıçrama, mevcut hukuk çerçevesinin yetersiz kaldığı bir ara dönem yarattı. Bu dönemlerde devletler yeni kapasiteyi kullanmakta serbest davrandı, kural ise ancak zarar yeterince görünür hâle geldikten sonra oluştu.</p>
+        <h3>Tekrar eden örüntü</h3>
+        <p>Denizaltı savaşı buna açık bir örnek. Yüzey gemileri için geliştirilmiş ödül kuralları denizaltının doğasıyla bağdaşmıyordu; kurallara uymak aracı işlevsiz kılıyordu. Sonuç, kuralların fiilen askıya alınması ve ancak savaş sonrasında yeniden yazılması oldu.</p>
+        <p>Hava bombardımanında da benzer bir seyir görülüyor. Sivil hedeflerin korunmasına dair ilkeler teknolojik kapasitenin gerisinde kaldı ve uygulamada erozyona uğradı. Her iki durumda da hukuk, teknolojiyi değil teknolojinin yarattığı yıkımı takip etti.</p>
+        <h3>Bugüne bakarken</h3>
+        <p>Aynı örüntü bugün otonom silah sistemleri ve siber operasyonlar için tartışılıyor. Ancak önemli bir fark var: önceki örneklerde en azından failin kim olduğu belliydi. Atfetme sorunu, bugünkü tartışmayı tarihsel örüntünün basit bir tekrarı olmaktan çıkarıyor.</p>
+        <p>Kural ihlalinin failini tespit edemediğiniz yerde, kuralın kendisi de zayıflıyor. Harp tarihi bize gecikmenin normal olduğunu öğretiyor, ama bu gecikmenin nasıl kapanacağı konusunda hazır bir cevap vermiyor.</p>
+      `
+    },
+    {
+      tarih: "2026-03-09",
+      etiket: "Siber",
+      baslik: "Siber uzayda \"egemenlik\" ne anlama geliyor?",
+      ozet: "Devletler siber alanda egemenlik iddiasında bulunurken birbirinden çok farklı üç şeyi kastediyor. Bu ayrımı yapmadan yürütülen tartışma verimsiz kalıyor.",
+      sure: "6 dk",
+      govde: `
+        <p>Egemenlik kavramı siber uzay tartışmalarında neredeyse her cümlede geçiyor. Buna karşılık kavramın ne anlama geldiği üzerinde bir uzlaşı yok. Devlet temsilcilerinin aynı kelimeyi kullanarak birbirine zıt şeyler savunması, uluslararası müzakerelerin neden tıkandığını büyük ölçüde açıklıyor.</p>
+        <h3>Üç ayrı iddia</h3>
+        <p>Birinci iddia altyapıya dair. Bir devletin sınırları içindeki sunucular, kablolar ve veri merkezleri üzerinde yargı yetkisi bulunduğunu söylemek, klasik toprak egemenliğinin doğrudan uzantısı. Bu iddia görece az tartışmalı çünkü fiziksel bir dayanağı var.</p>
+        <p>İkinci iddia veriye dair. Vatandaşlara ait verinin nerede tutulduğundan bağımsız olarak devletin denetimine tabi olduğunu savunmak, egemenliği topraktan kopararak kişiye bağlıyor. Burada iki devletin yetki alanı aynı veri üzerinde çakışabiliyor.</p>
+        <p>Üçüncü iddia enformasyon akışına dair. Sınır ötesinden gelen içeriğin ulusal güvenliği tehdit ettiği gerekçesiyle denetlenmesi gerektiğini söylemek, egemenliği bir içerik yönetimi yetkisine dönüştürüyor. En tartışmalı olan bu.</p>
+        <blockquote>Egemenlik iddiasının kendisi kadar, hangi katmanda ileri sürüldüğü belirleyicidir.</blockquote>
+        <p>Uluslararası platformlarda taraflar genellikle birinci iddiayı savunuyormuş gibi konuşuyor, uygulamada ise üçüncüsünü hayata geçiriyor. Kavramsal bulanıklık burada bir hata değil, işlevsel bir tercih.</p>
+      `
+    }
+  ],
+
+  /* --- GÜNDEM ------------------------------------------------------------
+     kaynak / kaynakAdi boş bırakılırsa bağlantı gösterilmez.
+     ------------------------------------------------------------------- */
+  gundem: [
+    {
+      tarih: "2026-08-04",
+      baslik: "Güney Çin Denizi'nde davranış kuralları görüşmeleri sürüyor",
+      not: "ASEAN ile Çin arasındaki müzakerelerde bağlayıcılık sorunu yine çözülemedi. Kurumsal çerçevenin gönüllü ilkelerin ötesine geçip geçemeyeceği belirsizliğini koruyor.",
+      kaynak: "",
+      kaynakAdi: ""
+    },
+    {
+      tarih: "2026-07-21",
+      baslik: "Kritik altyapı saldırılarında atfetme tartışması derinleşiyor",
+      not: "Teknik atfetmenin siyasi atfetmeye dönüşmesindeki eşik belirsizliği, karşılık verme meşruiyetini tartışmalı kılmayı sürdürüyor.",
+      kaynak: "",
+      kaynakAdi: ""
+    },
+    {
+      tarih: "2026-06-30",
+      baslik: "Enerji arz güvenliği yeniden stratejik gündemin merkezinde",
+      not: "Boru hattı ve LNG rotalarındaki değişim, enerji bağımlılığının bir ekonomi meselesi olmaktan çıkıp doğrudan güvenlik başlığına taşınmasını hızlandırıyor.",
+      kaynak: "",
+      kaynakAdi: ""
+    }
+  ],
+
+  /* --- GALERİ ------------------------------------------------------------
+     dosya: foto/ klasörüne koyacağınız görselin adı.
+     ------------------------------------------------------------------- */
+  galeri: [
+    { dosya: "foto/galeri-1.jpg", baslik: "Konferans sunumu" },
+    { dosya: "foto/galeri-2.jpg", baslik: "Arşiv çalışması" },
+    { dosya: "foto/galeri-3.jpg", baslik: "Panel oturumu" },
+    { dosya: "foto/galeri-4.jpg", baslik: "Saha ziyareti" },
+    { dosya: "foto/galeri-5.jpg", baslik: "Çalışma masası" },
+    { dosya: "foto/galeri-6.jpg", baslik: "Tez savunması" }
+  ],
+
+  /* --- İLETİŞİM ----------------------------------------------------------
+     E-posta adresinizi mutlaka değiştirin. Kullanmadığınız satırı silin.
+     ------------------------------------------------------------------- */
+  eposta: "eposta@ornek.com",
+  baglantilar: [
+    { etiket: "E-posta",         deger: "eposta@ornek.com",   adres: "mailto:eposta@ornek.com" },
+    { etiket: "ORCID",           deger: "0000-0000-0000-0000", adres: "https://orcid.org/" },
+    { etiket: "Google Akademik", deger: "Yayın profili",       adres: "https://scholar.google.com/" },
+    { etiket: "Academia.edu",    deger: "Tam metinler",        adres: "https://www.academia.edu/" },
+    { etiket: "LinkedIn",        deger: "Volkan Yaman",        adres: "https://www.linkedin.com/" }
+  ]
+};
+
+/* ============================================================================
+   BURADAN AŞAĞISI SİTENİN İŞLEYİŞİ — DÜZENLEMENİZE GEREK YOK
+   ============================================================================ */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const AYLAR = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+const trTarih = iso => { const d = new Date(iso); return `${d.getDate()} ${AYLAR[d.getMonth()]} ${d.getFullYear()}`; };
+
+$('#coordLine').textContent = SITE.koordinat;
+$('#footCoord').textContent = SITE.koordinat;
+$('#yr').textContent = new Date().getFullYear();
+
+/* --- görünüm tercihi --- */
+const root = document.documentElement;
+let tema = 'light';
+try { tema = localStorage.getItem('vy-tema') || 'light'; } catch (e) {}
+root.setAttribute('data-theme', tema);
+$('#theme').addEventListener('click', () => {
+  const yeni = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', yeni);
+  try { localStorage.setItem('vy-tema', yeni); } catch (e) {}
+});
+
+/* --- mobil menü --- */
+const nav = $('#nav'), burger = $('#burger');
+burger.addEventListener('click', () => {
+  const acik = nav.classList.toggle('open');
+  burger.setAttribute('aria-expanded', acik);
+  burger.setAttribute('aria-label', acik ? 'Menüyü kapat' : 'Menüyü aç');
+});
+nav.addEventListener('click', e => { if (e.target.tagName === 'A') { nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); } });
+
+/* --- portre var mı --- */
+const pImg = $('#portraitImg');
+pImg.addEventListener('error', () => $('#portraitFrame').classList.add('is-empty'));
+if (pImg.complete && pImg.naturalWidth === 0) $('#portraitFrame').classList.add('is-empty');
+
+/* --- çalışma alanları --- */
+$('#fields').innerHTML = SITE.alanlar.map(a => `
+  <article class="field">
+    <span class="num">${esc(a.etiket)}</span>
+    <h3>${esc(a.baslik)}</h3>
+    <p>${esc(a.metin)}</p>
+    <ul>${a.anahtar.map(k => `<li>${esc(k)}</li>`).join('')}</ul>
+  </article>`).join('');
+
+/* --- biyografi + künye --- */
+$('#bio').innerHTML = SITE.biyografi.map(p => `<p>${esc(p)}</p>`).join('');
+$('#facts').innerHTML = SITE.kunye.map(f => `
+  <div class="fact"><dt>${esc(f.baslik)}</dt>
+  <dd>${esc(f.deger)}${f.alt ? `<small>${esc(f.alt)}</small>` : ''}</dd></div>`).join('');
+
+/* --- eğitim --- */
+$('#eduList').innerHTML = SITE.egitim.map(e => {
+  const satir = [e.kurum, e.yil].filter(Boolean).join(' · ');
+  return `<li>
+    <span class="deg">${esc(e.derece)}</span>
+    <div>
+      <h3>${esc(e.alan)}</h3>
+      ${satir ? `<p>${esc(satir)}</p>` : ''}
+      ${e.tez ? `<p><b>Tez:</b> ${esc(e.tez)}</p>` : ''}
+    </div>
+  </li>`;
+}).join('');
+
+/* --- yayınlar: süzgeç + arama --- */
+const turler = ['Tümü', ...new Set(SITE.yayinlar.map(y => y.tur))];
+let aktifTur = 'Tümü', arama = '';
+$('#pubChips').innerHTML = turler.map((t, i) =>
+  `<button class="chip${i === 0 ? ' on' : ''}" data-tur="${esc(t)}" aria-pressed="${i === 0}">${esc(t)}</button>`).join('');
+
+function yayinlariCiz() {
+  const q = arama.trim().toLocaleLowerCase('tr');
+  const liste = SITE.yayinlar.filter(y => {
+    const turUyar = aktifTur === 'Tümü' || y.tur === aktifTur;
+    const havuz = `${y.baslik} ${y.dergi} ${y.not} ${y.yazarlar} ${y.anahtar} ${y.yil}`.toLocaleLowerCase('tr');
+    return turUyar && (!q || havuz.includes(q));
+  });
+  $('#pubEmpty').style.display = liste.length ? 'none' : 'block';
+  $('#pubList').innerHTML = liste.map(y => `
+    <li class="pub">
+      <span class="yr">${esc(y.yil)}</span>
+      <div>
+        <h3>${esc(y.baslik)}</h3>
+        ${y.yazarlar ? `<p class="who">${esc(y.yazarlar)}</p>` : ''}
+        <p class="venue"><i>${esc(y.dergi)}</i>${y.not ? '<br>' + esc(y.not) : ''}</p>
+        <div class="meta">
+          <span class="tag">${esc(y.tur)}</span>
+          ${y.durum ? `<span class="tag status">${esc(y.durum)}</span>` : ''}
+        </div>
+      </div>
+      ${y.baglanti ? `<a class="go" href="${esc(y.baglanti)}" target="_blank" rel="noopener">Yayına git ↗</a>` : '<span></span>'}
+    </li>`).join('');
+}
+$('#pubChips').addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  aktifTur = b.dataset.tur;
+  [...$('#pubChips').children].forEach(c => {
+    const on = c === b; c.classList.toggle('on', on); c.setAttribute('aria-pressed', on);
+  });
+  yayinlariCiz();
+});
+$('#pubSearch').addEventListener('input', e => { arama = e.target.value; yayinlariCiz(); });
+yayinlariCiz();
+
+/* --- yazılar --- */
+$('#noteGrid').innerHTML = SITE.yazilar.map((y, i) => `
+  <button class="note" data-i="${i}">
+    <span class="top-line"><time datetime="${esc(y.tarih)}">${trTarih(y.tarih)}</time><span class="rt">${esc(y.sure)}</span></span>
+    <h3>${esc(y.baslik)}</h3>
+    <p>${esc(y.ozet)}</p>
+    <span class="more">Yazıyı oku
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </button>`).join('');
+
+/* --- okuma paneli --- */
+const reader = $('#reader');
+let sonOdak = null;
+function yaziAc(i) {
+  const y = SITE.yazilar[i];
+  sonOdak = document.activeElement;
+  $('#readerKicker').textContent = y.etiket;
+  $('#readerTitle').textContent = y.baslik;
+  $('#readerByline').textContent = `${trTarih(y.tarih)} · ${y.sure} okuma · Volkan Yaman`;
+  $('#readerBody').innerHTML = y.govde;
+  reader.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  $('#sheet').scrollTop = 0;
+  $('#readerClose').focus();
+}
+function yaziKapat() {
+  reader.classList.remove('open');
+  document.body.style.overflow = '';
+  if (sonOdak) sonOdak.focus();
+}
+$('#noteGrid').addEventListener('click', e => {
+  const b = e.target.closest('.note'); if (b) yaziAc(+b.dataset.i);
+});
+$('#readerClose').addEventListener('click', yaziKapat);
+reader.addEventListener('click', e => { if (e.target === reader) yaziKapat(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && reader.classList.contains('open')) yaziKapat(); });
+
+/* --- gündem --- */
+$('#feed').innerHTML = SITE.gundem.map(g => `
+  <li class="item">
+    <span class="when">${trTarih(g.tarih)}</span>
+    <div>
+      <h3>${esc(g.baslik)}</h3>
+      <p>${esc(g.not)}</p>
+      ${g.kaynak ? `<a class="src" href="${esc(g.kaynak)}" target="_blank" rel="noopener">${esc(g.kaynakAdi || 'Kaynak')} ↗</a>` : ''}
+    </div>
+  </li>`).join('');
+
+/* --- galeri --- */
+$('#gallery').innerHTML = SITE.galeri.map(g => `
+  <figure class="shot" style="margin:0">
+    <img src="${esc(g.dosya)}" alt="${esc(g.baslik)}" loading="lazy">
+    <figcaption>${esc(g.baslik)}</figcaption>
+    <div class="empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="width:22px;height:22px;margin:0 auto"><rect x="3" y="5" width="18" height="15" rx="1"/><circle cx="9" cy="10" r="2"/><path d="m3 17 5-4 4 3 3-2 6 4"/></svg>
+      <code style="font-family:var(--f-mono);font-size:.62rem;color:var(--survey);word-break:break-all">${esc(g.dosya)}</code>
+    </div>
+  </figure>`).join('');
+$('#gallery').querySelectorAll('img').forEach(im => {
+  const isaretle = () => im.closest('.shot').classList.add('is-empty');
+  im.addEventListener('error', isaretle);
+  if (im.complete && im.naturalWidth === 0) isaretle();
+});
+
+/* --- iletişim --- */
+$('#links').innerHTML = SITE.baglantilar.map(b => `
+  <li><a href="${esc(b.adres)}"${b.adres.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>
+    <span class="lbl">${esc(b.etiket)}</span><span class="val">${esc(b.deger)}</span></a></li>`).join('');
+
+$('#contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target;
+  const govde = `${f.mesaj.value}\n\n---\n${f.ad.value}\n${f.eposta.value}`;
+  window.location.href = `mailto:${SITE.eposta}?subject=${encodeURIComponent(f.konu.value)}&body=${encodeURIComponent(govde)}`;
+  $('#formNote').textContent = 'Mesaj e-posta programınızda açıldı. Göndermek için oradan onaylayın.';
+  $('#formNote').style.color = 'var(--survey)';
+});
+
+/* --- nirengi ağı --- */
+(function () {
+  const svg = $('#net');
+  const NS = 'http://www.w3.org/2000/svg';
+  const az = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let g;
+
+  function ciz() {
+    const kutu = svg.parentElement.getBoundingClientRect();
+    const W = Math.max(kutu.width, 320), H = Math.max(kutu.height, 380);
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.innerHTML = '';
+    g = document.createElementNS(NS, 'g');
+    svg.appendChild(g);
+
+    const sayi = W < 720 ? 13 : 22;
+    const nokta = [];
+    for (let i = 0; i < sayi; i++) {
+      nokta.push({ x: Math.random() * W, y: Math.random() * H, r: 1.6 + Math.random() * 1.4 });
+    }
+    const ana = { x: W * 0.16, y: H * 0.33, r: 4, ana: true };
+    nokta.push(ana);
+
+    const esik = Math.min(W, H) * 0.42;
+    let uzunluk = 0;
+    nokta.forEach((a, i) => nokta.forEach((b, j) => {
+      if (j <= i) return;
+      const d = Math.hypot(a.x - b.x, a.y - b.y);
+      if (d > esik) return;
+      const l = document.createElementNS(NS, 'line');
+      l.setAttribute('x1', a.x); l.setAttribute('y1', a.y);
+      l.setAttribute('x2', b.x); l.setAttribute('y2', b.y);
+      l.setAttribute('stroke', (a.ana || b.ana) ? 'var(--mark)' : 'var(--net-line)');
+      l.setAttribute('stroke-width', (a.ana || b.ana) ? '.8' : '.6');
+      if ((a.ana || b.ana)) l.setAttribute('opacity', '.45');
+      if (!az) {
+        l.style.strokeDasharray = d; l.style.strokeDashoffset = d;
+        l.style.animation = `draw .9s ${(uzunluk++ % 14) * .07 + .15}s cubic-bezier(.3,.9,.4,1) forwards`;
+      }
+      g.appendChild(l);
+    }));
+
+    nokta.forEach((p, i) => {
+      const c = document.createElementNS(NS, 'circle');
+      c.setAttribute('cx', p.x); c.setAttribute('cy', p.y); c.setAttribute('r', p.r);
+      c.setAttribute('fill', p.ana ? 'var(--mark)' : 'var(--net-node)');
+      if (!az) { c.style.opacity = 0; c.style.animation = `pop .5s ${.5 + i * .03}s ease forwards`; }
+      g.appendChild(c);
+      if (p.ana) {
+        const h = document.createElementNS(NS, 'circle');
+        h.setAttribute('cx', p.x); h.setAttribute('cy', p.y); h.setAttribute('r', 13);
+        h.setAttribute('fill', 'none'); h.setAttribute('stroke', 'var(--mark)');
+        h.setAttribute('stroke-width', '.9'); h.setAttribute('opacity', '.5');
+        if (!az) h.style.animation = 'nabiz 3.4s 1.2s ease-in-out infinite';
+        g.appendChild(h);
+      }
+    });
+  }
+
+  const stil = document.createElement('style');
+  stil.textContent = `@keyframes draw{to{stroke-dashoffset:0}}
+    @keyframes pop{to{opacity:1}}
+    @keyframes nabiz{0%,100%{r:13;opacity:.5}50%{r:19;opacity:.12}}`;
+  document.head.appendChild(stil);
+
+  ciz();
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(ciz, 260); });
+
+  if (!az) {
+    window.addEventListener('pointermove', e => {
+      const dx = (e.clientX / window.innerWidth - .5) * 14;
+      const dy = (e.clientY / window.innerHeight - .5) * 9;
+      if (g) g.style.transform = `translate(${dx}px, ${dy}px)`;
+    }, { passive: true });
+    if (g) g.style.transition = 'transform .7s cubic-bezier(.2,.9,.3,1)';
+  }
+})();
+
+/* --- kaydırmayla beliren bölümler --- */
+const gozlemci = new IntersectionObserver(g => {
+  g.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); gozlemci.unobserve(e.target); } });
+}, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('.rise').forEach((el, i) => {
+  el.style.transitionDelay = `${(i % 3) * 70}ms`;
+  gozlemci.observe(el);
+});
+
+/* --- menüde etkin bölüm --- */
+const bolumler = [...document.querySelectorAll('main section[id]')];
+const baglar = new Map([...document.querySelectorAll('.nav a')].map(a => [a.getAttribute('href').slice(1), a]));
+const takip = new IntersectionObserver(g => {
+  g.forEach(e => {
+    const a = baglar.get(e.target.id); if (!a) return;
+    if (e.isIntersecting) { baglar.forEach(x => x.classList.remove('on')); a.classList.add('on'); }
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+bolumler.forEach(s => takip.observe(s));
+</script>
+</body>
+</html>
