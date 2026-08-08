@@ -189,8 +189,8 @@ section{scroll-margin-top:80px}
 .band{padding-block:var(--sec-pad);border-bottom:1px solid var(--rule)}
 .band.alt{background:var(--paper-2)}
 
-.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(30px,4vw,50px)}
-.sec-head .mono{color:var(--survey);white-space:nowrap}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(34px,4.5vw,58px)}
+.sec-head .mono{color:var(--survey);white-space:nowrap;font-size:.9rem;letter-spacing:.1em}
 .sec-head .bar{flex:1;height:1px;background:var(--rule);position:relative}
 .sec-head .bar::after{content:"";position:absolute;right:0;top:-3px;width:1px;height:7px;background:var(--mark)}
 h2{
@@ -459,8 +459,8 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
   <div class="wrap hero-in">
     <div>
       <p class="mono coord" id="coordLine">41°44′K 27°13′D — Kırklareli, Türkiye</p>
-      <h1>Siber uzayı hem strateji hem altyapı olarak okumak</h1>
-      <p class="lede">Çalışmalarım uluslararası güvenlik çatısı altında güvenlik çalışmaları ve siber güvenlik alanlarında yoğunlaşmaktadır. Siber uzayı yalnızca devletlerin egemenlik iddiasında bulunduğu stratejik bir alan olarak değil, aynı zamanda korunması gereken somut bir altyapı olarak ele almaktayım. Bu ikili bakış, hem uluslararası ilişkiler kuramına hem de teknik alandaki çalışma tecrübeme dayanmaktadır. Tarih eğitimim ise harp tarihine yönelik ilgimin temelini oluşturmaktadır.</p>
+      <h1>Siber uzay uluslararası güvenliği nasıl dönüştürüyor?</h1>
+      <p class="lede">Siber uzay, sanal olarak tanımlanmakla birlikte fiziksel altyapılara dayanan yapısı nedeniyle devletlerin jeopolitik çıkarlarını sürdürdüğü bir rekabet alanına dönüşmüştür. Bu dönüşümü egemenlik algısının yeniden inşası, güç projeksiyonunun dijitalleşmesi ve hukuki boşlukların stratejik araçsallaştırılması ekseninde incelemekteyim. Alanı hem uluslararası ilişkiler kuramı hem de teknik boyutlarıyla ele almam, akademik altyapımın ve çalışma tecrübemin ortak sonucudur.</p>
       <div class="cta-row">
         <a class="btn" href="#yayinlar">Yayınları gör
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -478,7 +478,7 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
           <code>foto/portre.jpg</code>
         </div>
       </div>
-      <figcaption class="cap mono" style="letter-spacing:.09em">Bağımsız araştırmacı · Kırklareli</figcaption>
+      <figcaption class="cap mono" style="letter-spacing:.09em;text-align:center">Bağımsız Araştırmacı · Kırklareli</figcaption>
     </figure>
   </div>
 </section>
@@ -500,7 +500,6 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 <section id="alanlar" class="band alt">
   <div class="wrap">
     <div class="sec-head rise"><span class="mono">Çalışma Alanları</span><span class="bar"></span></div>
-    <h2 class="rise">Araştırma alanlarım ve odak noktalarım</h2>
     <div class="fields rise" id="fields"></div>
   </div>
 </section>
@@ -509,7 +508,6 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 <section id="egitim" class="band">
   <div class="wrap">
     <div class="sec-head rise"><span class="mono">Eğitim</span><span class="bar"></span></div>
-    <h2 class="rise">Akademik ve mesleki eğitim geçmişim</h2>
     <ul class="edu rise" id="eduList"></ul>
   </div>
 </section>
@@ -518,7 +516,6 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 <section id="yayinlar" class="band alt">
   <div class="wrap">
     <div class="sec-head rise"><span class="mono">Yayınlar</span><span class="bar"></span></div>
-    <h2 class="rise">Yayınlarım ve çalışmalarım</h2>
     <p class="sec-note rise">Türe göre süzebilir ya da başlık, dergi ve anahtar kelime içinde arayabilirsiniz.</p>
 
     <div class="controls rise">
@@ -538,7 +535,6 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 <section id="yazilar" class="band">
   <div class="wrap">
     <div class="sec-head rise"><span class="mono">Araştırma Yazıları</span><span class="bar"></span></div>
-    <h2 class="rise">Araştırma notları ve değerlendirmeler</h2>
     <div class="notes rise" id="noteGrid"></div>
     <p class="bekliyor rise" id="noteEmpty" style="display:none">Bu bölüm yakında güncellenecektir</p>
   </div>
@@ -548,7 +544,6 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 <section id="gundem" class="band alt">
   <div class="wrap">
     <div class="sec-head rise"><span class="mono">Gündem</span><span class="bar"></span></div>
-    <h2 class="rise">Alandan takip ettiğim gelişmeler</h2>
     <ul class="feed rise" id="feed"></ul>
     <p class="bekliyor rise" id="feedEmpty" style="display:none">Bu bölüm yakında güncellenecektir</p>
   </div>
@@ -558,7 +553,6 @@ footer a:hover{color:var(--mark);border-color:var(--mark)}
 <section id="galeri" class="band">
   <div class="wrap">
     <div class="sec-head rise"><span class="mono">Galeri</span><span class="bar"></span></div>
-    <h2 class="rise">Görseller</h2>
     <div class="gallery rise" id="gallery"></div>
   </div>
 </section>
@@ -624,20 +618,20 @@ const SITE = {
     {
       etiket: "Alan",
       baslik: "Uluslararası Güvenlik",
-      metin: "Uluslararası Güvenlik, çalışmalarımın kavramsal çatısını oluşturmaktadır. Güvenlik kavramının kapsamı, bölgesel güvenlik düzenlerinin işleyişi ve aktörler arası etkileşim biçimleri temel ilgi alanlarımdır.",
-      anahtar: ["Güvenlik Çalışmaları", "Bölgesel Güvenlik Kompleksi", "Enerji Güvenliği"]
+      metin: "Uluslararası güvenlik, çalışmalarımın kavramsal çatısını oluşturmaktadır. Güvenlik kavramının Soğuk Savaş sonrasında geçirdiği genişleme, bölgesel güvenlik düzenlerinin hangi dinamiklerle kurulduğu ve aktörlerin bu düzenler içindeki etkileşimi temel ilgi alanlarımdır. Bölgesel Güvenlik Kompleksi Teorisi bu incelemelerde başvurduğum çerçevelerden biridir.",
+      anahtar: ["Güvenlikleştirme", "Bölgesel Güvenlik Kompleksi", "Enerji Güvenliği"]
     },
     {
       etiket: "Alan",
       baslik: "Siber Güvenlik ve Siber Uzay Jeopolitiği",
-      metin: "Siber güvenliği iki ayrı düzlemde ele almaktayım. Uluslararası ilişkiler açısından siber uzayda egemenlik iddiaları, güç kullanımı ve norm oluşumu üzerinde durmaktayım. Teknik açıdan ise sistem ve altyapı güvenliğine odaklanmaktayım. Doktora tezimi bu alanda hazırladım ve çalışmalarımı bu doğrultuda sürdürmekteyim.",
-      anahtar: ["Siber Uzay Jeopolitiği", "Kritik Altyapı ve Sistemler", "Güvenlik Analizi"]
+      metin: "Siber uzayı, uluslararası güvenliği dönüştüren jeopolitik bir mekân olarak ele almaktayım. Bu dönüşümü egemenlik algısının yeniden inşası, güç projeksiyonunun dijitalleşmesi ve hukuki boşlukların stratejik araçsallaştırılması ekseninde inceliyorum. Aktörlerin siber güvenlik politikalarının jeopolitik kültürlerine göre farklılaştığı, bu incelemenin temel bulgusudur. Eleştirel jeopolitik yaklaşımı çalışmalarımın kuramsal çerçevesini oluşturmaktadır.",
+      anahtar: ["Siber Egemenlik", "Jeopolitik Kültür", "Norm Boşluğu", "Kritik Altyapı"]
     },
     {
       etiket: "Alan",
       baslik: "Harp Tarihi",
-      metin: "Harp tarihine yönelik ilgim iki kaynaktan beslenmektedir. Kara Harp Okulu ve Kara Harp Akademisi'nde aldığım öğrenim strateji ve doktrin konularına kurumsal bir bakış kazandırmış, tarih alanındaki lisans eğitimim ise bu birikimi tarihsel yöntemle ele alma imkânı sunmuştur.",
-      anahtar: ["Askerî Tarih", "Strateji", "Doktrin"]
+      metin: "Harp tarihine yönelik ilgim iki kaynaktan beslenmektedir. Kara Harp Okulu ve Millî Savunma Üniversitesi bünyesindeki harp enstitülerinde aldığım öğrenim strateji ve doktrin konularına kurumsal bir bakış kazandırmış, tarih alanındaki lisans eğitimim ise bu birikimi tarihsel yöntemle ele alma imkânı sunmuştur. Askerî tarih, doktrin ve strateji konularında çalışmalarımı derinleştirmeyi planlamaktayım.",
+      anahtar: ["Askerî Tarih", "Doktrin Gelişimi", "Teknoloji ve Savaş"]
     }
   ],
 
@@ -645,19 +639,21 @@ const SITE = {
   /* İlk paragraf otomatik olarak büyük puntoyla vurgulanır. */
   biyografi: [
     "Uluslararası İlişkiler alanında doktora derecesine sahip bağımsız bir araştırmacıyım. Çalışmalarım uluslararası güvenlik çatısı altında güvenlik çalışmaları ve siber güvenlik alanlarında yoğunlaşmaktadır.",
-    "Akademik altyapım birden fazla alana yayılmaktadır. Lisans eğitimimi Kara Harp Okulu Sistem Mühendisliği programında tamamladım. Ardından Anadolu Üniversitesi'nde Uluslararası İlişkiler ve İstanbul Üniversitesi'nde Tarih lisans programlarını bitirdim. Hâlen Yönetim Bilişim Sistemleri lisans eğitimimi sürdürmekteyim.",
-    "Yüksek lisans çalışmamı Millî Savunma Üniversitesi'nde enerji güvenliği üzerine hazırladım. Doktora tezimde ise siber uzay jeopolitiğini uluslararası güvenlik boyutuyla ele aldım.",
-    "Siber güvenliği yalnızca kuramsal düzeyde değil teknik düzeyde de takip etmekteyim. Bu alanda siber güvenlik analistliği sertifikalarına ve iki yıllık çalışma tecrübesine sahibim. Yönetim Bilişim Sistemleri eğitimim de bu ikili bakışı desteklemektedir.",
-    "Önümüzdeki dönemde siber uzay jeopolitiği üzerine çalışmayı ve konuyu farklı boyutlarıyla ele almayı planlamaktayım."
+    "Doktora çalışmamı Trakya Üniversitesi'nde tamamladım. Tezimde siber uzayı, uluslararası güvenliği dönüştüren jeopolitik bir mekân olarak ele aldım. Bu çalışma, hâlen sürdürdüğüm araştırma gündeminin temelini oluşturmaktadır.",
+    "Akademik altyapım birden fazla alana yayılmaktadır. Lisans eğitimimi Kara Harp Okulu Sistem Mühendisliği programında tamamladıktan sonra Anadolu Üniversitesi Uluslararası İlişkiler ve İstanbul Üniversitesi Tarih programlarını bitirdim. Hâlen Yönetim Bilişim Sistemleri lisans eğitimimi sürdürmekteyim.",
+    "Yüksek lisans çalışmamı ise Millî Savunma Üniversitesi'nde enerji güvenliği üzerine hazırladım. Enerji güvenliği, uluslararası güvenlik çalışmalarım içinde hâlen sürdürdüğüm bir ilgi alanıdır.",
+    "Siber güvenliği kuramsal düzeyin yanı sıra teknik düzeyde de çalışmaktayım. Bu alanda iki yıl boyunca siber güvenlik analisti olarak görev aldım. Güvenlik olaylarının izlenmesi ve incelenmesi, SIEM ve EDR sistemleri üzerinde log analizi, ağ trafiği takibi ve zafiyet taraması bu görevin kapsamındaydı. Aynı süreçte mentörlük ve eğiticilik yürütmüş, alanın temel konularında eğitim içeriği hazırlamış bulunmaktayım. Yönetim Bilişim Sistemleri eğitimim de bu teknik zemini desteklemektedir.",
+    "Önümüzdeki dönemde siber uzay jeopolitiği üzerine çalışmalarımı sürdürmeyi ve konuyu farklı boyutlarıyla ele almayı planlamaktayım."
   ],
 
   /* --- HAKKIMDA: künye satırları ----------------------------------------- */
   kunye: [
-    { baslik: "Unvan",   deger: "Doktor (Ph.D.)", alt: "Uluslararası İlişkiler" },
-    { baslik: "Konum",   deger: "Kırklareli, Türkiye" },
-    { baslik: "Statü",   deger: "Bağımsız Araştırmacı" },
-    { baslik: "Diller",  deger: "Türkçe, İngilizce" },
-    { baslik: "Alanlar", deger: "Uluslararası Güvenlik", alt: "Siber Güvenlik · Harp Tarihi" }
+    { baslik: "Unvan",    deger: "Doktor (Ph.D.)", alt: "Uluslararası İlişkiler" },
+    { baslik: "Konum",    deger: "Kırklareli, Türkiye" },
+    { baslik: "Statü",    deger: "Bağımsız Araştırmacı" },
+    { baslik: "ORCID",    deger: "0000-0003-3362-3194" },
+    { baslik: "Uzmanlık", deger: "Siber Güvenlik Analisti", alt: "Mentör ve Eğitici" },
+    { baslik: "Alanlar",  deger: "Uluslararası Güvenlik", alt: "Siber Güvenlik · Harp Tarihi" }
   ],
 
   /* --- EĞİTİM ------------------------------------------------------------ */
